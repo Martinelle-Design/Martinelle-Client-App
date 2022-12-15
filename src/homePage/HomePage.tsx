@@ -31,6 +31,7 @@ const HomePage = () => {
       <div className={`${namespace}-inner-container`}>
         <HomePageNav />
         <IntroBanner />
+        
         <HomePageCategoriesNav />
         <SecondaryBanner />
       </div>
