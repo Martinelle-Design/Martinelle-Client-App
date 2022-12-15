@@ -1,0 +1,86 @@
+@mixin general-navbar-md {
+  $namespace: "general-navbar";
+}
+
+@mixin general-navbar-sm {
+  $namespace: "general-navbar";
+  .#{$namespace} {
+    a {
+      font-size: 1.1em;
+    }
+  }
+  .#{$namespace}-search-container {
+    margin: 0 1em;
+    button {
+      padding: 0;
+      padding-right: 0.5em;
+      padding-left: 0.5em;
+    }
+  }
+  .#{$namespace}-search-input {
+    @keyframes collapse {
+      0% {
+        visibility: visible;
+        opacity: 1;
+        height: 3em;
+      }
+      25% {
+        visibility: visible;
+        opacity: 1;
+      }
+      75% {
+        visibility: visible;
+        opacity: 1;
+        height: 0;
+      }
+      100% {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+    @keyframes show {
+      0% {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        opacity: 0;
+      }
+      25% {
+        visibility: visible;
+        opacity: 1;
+      }
+      75% {
+        visibility: visible;
+        opacity: 1;
+      }
+      100% {
+        visibility: visible;
+        opacity: 1;
+        height: 3em;
+      }
+    }
+    display: flex;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    top: $navbar-height;
+    left: 0;
+    height: 0;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    animation: collapse 0.2s ease-out;
+    input {
+      padding: 0 2em;
+      flex-grow: 1;
+      border: none;
+      border-top: 1px solid $light-gray;
+      border-bottom: 1px solid $light-gray;
+    }
+    &.show {
+      animation: show 0.2s ease-out;
+      visibility: visible;
+      height: 3em;
+    }
+  }
+}

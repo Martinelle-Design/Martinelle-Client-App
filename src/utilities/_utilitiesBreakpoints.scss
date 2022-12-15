@@ -1,0 +1,12 @@
+@import "./popUpModal/popUpModalBreakpoints";
+@import "./generalNavbar/generalNavbarBreakpoints";
+@mixin utilities-sm {
+}
+@mixin utilities-md {
+  @include pop-up-modal-md;
+  @include general-navbar-md;
+}
+@mixin utilities-sm {
+  @include pop-up-modal-sm;
+  @include general-navbar-sm;
+}

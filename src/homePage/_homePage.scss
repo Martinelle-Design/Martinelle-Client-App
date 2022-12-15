@@ -1,0 +1,70 @@
+$namespace: "home-pg";
+.#{$namespace}-container {
+    display: flex;
+    justify-content: center;
+};
+.#{$namespace}-inner-container{
+    position: relative;
+    width: 100%;
+    max-width: 1300px;
+}
+.#{$namespace}-nav {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  @include carousel-btn-styles(
+    $fontColor: $darker-gray,
+    $btnWidth: 1rem,
+    $bgColor: $white,
+    $fontSize: 1rem
+  );
+}
+
+.#{$namespace}-nav-link {
+  font-size: 0.9em;
+  color: $light-black;
+  font-weight: 400;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.#{$namespace}-category-nav {
+  margin-top: 1em;
+  //margin-bottom: 2em;
+  @include carousel-btn-styles(
+    $fontColor: $darker-gray,
+    $btnWidth: 5em,
+    $bgColor: $white,
+    $fontSize: 2em
+  );
+}
+.#{$namespace}-img-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  @include img-fill;
+  .#{$namespace}-img-container {
+    width: 16em;
+    height: 9em;
+    margin: 0;
+    padding: 0;
+    &>span{
+        width: 100%;
+        height: 100%;
+    }
+  }
+  .#{$namespace}-img-title {
+    text-align: center;
+    margin: 0;
+    margin: 1em 0;
+    font-weight: 600;
+    font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    font-size: 0.9em;
+  }
+}
+.#{$namespace}-categories-nav-link {
+  @extend .#{$namespace}-nav-link;
+  color: $black;
+  font-weight: 700;
+  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}

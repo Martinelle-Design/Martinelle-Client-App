@@ -1,0 +1,49 @@
+//colors
+$dark-green: #37673f;
+$green: #44814e;
+$black: #030303;
+$light-gray: #c2c2c2;
+$lighter-gray: #dcdcdc;
+$gray: #c4c4c4;
+$darkest-gray: #939393;
+$light-black: #333333;
+
+$darker-gray: #727272;
+$white: #fdfdfd;
+$off-white: #f3f3f3;
+//rest of variables
+$navbar-height: 5em;
+@mixin remove-btn-default {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+@mixin img-fill {
+  img {
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+@mixin carousel-btn-styles($fontColor, $bgColor, $btnWidth, $fontSize) {
+  padding: 0 $btnWidth !important;
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $fontColor;
+    width: $btnWidth;
+    background-color: $bgColor;
+    &::after {
+      font-size: $fontSize;
+      font-weight: 600;
+    }
+  }
+}
+//extra colors
+$purple: #041c54;
+$orange: #fc8304;
+$blue: #3277f7;
+$red: #ff0000;
+$light-red: #ff9790;
+$lighter-red: #ffb9b4;
+$dark-red: #3b0000;

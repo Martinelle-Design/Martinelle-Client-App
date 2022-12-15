@@ -1,0 +1,10 @@
+@import "./variables";
+@import "../src/utilities/utilities";
+@import "../src/homePage/homePage";
+@import "./mediaQueries";
+button{
+    cursor: pointer;
+}
+#general-app-container {
+    padding-top: $navbar-height;
+  }
