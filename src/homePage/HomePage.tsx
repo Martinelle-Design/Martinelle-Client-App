@@ -1,8 +1,93 @@
 import HomePageNav from "./utilities/HomePageNav";
-import HomePageCategoriesNav from "./utilities/HomePageCategoriesNav";
+import HomePageCategoriesNav, {
+  ImageProps,
+  ImageSlide,
+} from "./utilities/HomePageCategoriesNav";
 import HomePageImageBanner from "./utilities/HomePageImageBanner";
 import HomePageImageBannerFull from "./utilities/HomePageImgBannerFull";
+import { v4 as uuid } from "uuid";
+import { Link } from "react-router-dom";
 const namespace = "home-pg";
+const interiorDesignCategories: (ImageProps & {
+  name: string;
+  id: string;
+  url?: string;
+  children?: JSX.Element | string | JSX.Element[];
+  onClick?: (
+    e:
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+      | React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => void;
+})[] = [
+  {
+    id: uuid(),
+    name: "ARMCHAIRS & SOFAS",
+    url: "",
+    imgUrl: "",
+  },
+  {
+    id: uuid(),
+    name: "ARMCHAIRS & SOFAS",
+    url: "",
+    imgUrl: "",
+  },
+  {
+    id: uuid(),
+    name: "ARMCHAIRS & SOFAS",
+    url: "",
+    imgUrl: "",
+  },
+  {
+    id: uuid(),
+    name: "ARMCHAIRS & SOFAS",
+    url: "",
+    imgUrl: "",
+  },
+];
+const HomePageBottomBanner = () => {
+  return (
+    <>
+      <div className={`${namespace}-bottom-banner-action`}>
+        <h3>Browse Our Interior Designs</h3>
+        <Link to="/catalog">Shop Now</Link>
+      </div>
+
+      <div className={`${namespace}-bottom-banner`}>
+        {interiorDesignCategories.map((category) => {
+          const el = category.url ? (
+            <Link
+              key={category.id}
+              to={category.url}
+              onClick={category.onClick}
+              className={`${namespace}-bottom-banner-link`}
+            >
+              <ImageSlide
+                name={category.name}
+                imgUrl={category.imgUrl}
+                imgDescription={category.imgDescription}
+                imgPlaceholderUrl={category.imgPlaceholderUrl}
+              />
+            </Link>
+          ) : (
+            <button
+              key={category.id}
+              onClick={category.onClick}
+              className={`${namespace}-bottom-banner-link`}
+            >
+              <ImageSlide
+                name={category.name}
+                imgUrl={category.imgUrl}
+                imgDescription={category.imgDescription}
+                imgPlaceholderUrl={category.imgPlaceholderUrl}
+              />
+            </button>
+          );
+          return el;
+        })}
+      </div>
+    </>
+  );
+};
 const HomePage = () => {
   return (
     <div className={`${namespace}-container`}>
@@ -38,6 +123,7 @@ const HomePage = () => {
           at the perfect height with lifestyle-enhancing details that upgrade
           any space.
         </HomePageImageBanner>
+        <HomePageBottomBanner />
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ const categories = [
   { name: "Nightstands", imgUrl: "", url: "/" },
   { name: "Nightstands", imgUrl: "", url: "/" },
 ];
-const ImageSlide = ({
+export const ImageSlide = ({
   imgUrl,
   name,
   imgDescription,
