@@ -1,19 +1,29 @@
+@import "./utilities/homePageImageBanner";
 $namespace: "home-pg";
 .#{$namespace}-container {
-    display: flex;
-    justify-content: center;
-};
-.#{$namespace}-inner-container{
-    position: relative;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.#{$namespace}-inner-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > * {
     max-width: 1300px;
+    width: 100%;
+  }
 }
 .#{$namespace}-nav {
   margin-top: 1em;
   margin-bottom: 2em;
+  $btnWidth: 1em;
+  margin-top: 1em;
+  width: calc(100% - (#{$btnWidth} * 2));
   @include carousel-btn-styles(
     $fontColor: $darker-gray,
-    $btnWidth: 1rem,
+    $btnWidth: $btnWidth,
     $bgColor: $white,
     $fontSize: 1rem
   );
@@ -25,13 +35,20 @@ $namespace: "home-pg";
   font-weight: 400;
   font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
+.#{$namespace}-category-nav-title {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3em;
+    font-weight: 400;
+    font-family: 'Roboto','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .#{$namespace}-category-nav {
+  $btnWidth: 5em;
   margin-top: 1em;
-  //margin-bottom: 2em;
+  width: calc(100% - (#{$btnWidth} * 2));
   @include carousel-btn-styles(
     $fontColor: $darker-gray,
-    $btnWidth: 5em,
+    $btnWidth: $btnWidth,
     $bgColor: $white,
     $fontSize: 2em
   );
@@ -42,29 +59,33 @@ $namespace: "home-pg";
   align-items: center;
   background-color: black;
   @include img-fill;
-  .#{$namespace}-img-container {
-    width: 16em;
-    height: 9em;
-    margin: 0;
-    padding: 0;
-    &>span{
-        width: 100%;
-        height: 100%;
-    }
-  }
-  .#{$namespace}-img-title {
-    text-align: center;
-    margin: 0;
-    margin: 1em 0;
-    font-weight: 600;
-    font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.#{$namespace}-img-container {
+  width: 16em;
+  height: 9em;
+  margin: 0;
+  padding: 0;
+  & > span {
     width: 100%;
-    font-size: 0.9em;
+    height: 100%;
   }
+}
+.#{$namespace}-img-title {
+  text-align: center;
+  margin: 0;
+  margin: 1em 0;
+  font-weight: 600;
+  font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  font-size: 0.9em;
 }
 .#{$namespace}-categories-nav-link {
   @extend .#{$namespace}-nav-link;
   color: $black;
   font-weight: 700;
   font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.#{$namespace}-img-banner-left,
+.#{$namespace}-img-banner-right {
+  margin: 3em 0;
 }

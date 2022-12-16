@@ -1,0 +1,35 @@
+@mixin home-pg-md {
+  $namespace: "home-pg";
+
+  .#{$namespace}-category-nav {
+    $btnWidth: 3em;
+    width: calc(100% - (#{$btnWidth} * 2));
+    @include carousel-btn-styles(
+      $fontColor: $darker-gray,
+      $btnWidth: $btnWidth,
+      $bgColor: $white,
+      $fontSize: 1.2em
+    );
+  }
+  .#{$namespace}-img-container {
+    width: 13em;
+    height: 7.3125em;
+  }
+}
+@mixin home-pg-sm {
+  $namespace: "home-pg";
+  .#{$namespace}-category-nav {
+    $btnWidth: 2em;
+    width: calc(100% - (#{$btnWidth} * 2));
+    @include carousel-btn-styles(
+      $fontColor: $darker-gray,
+      $btnWidth: $btnWidth,
+      $bgColor: $white,
+      $fontSize: 0.8em
+    );
+  }
+  .#{$namespace}-img-container {
+    width: 10em;
+    height: 5.625em;
+  }
+}

@@ -2,6 +2,11 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import AdaptiveCarousel from "../../utilities/adaptiveCarousel/AdaptiveCarousel";
 import { v4 as uuid } from "uuid";
+export type ImageProps = {
+  imgPlaceholderUrl?: string;
+  imgUrl: string;
+  imgDescription?: string;
+};
 const namespace = "home-pg";
 const categories = [
   { name: "Nightstands", imgUrl: "", url: "/" },
@@ -19,11 +24,8 @@ const ImageSlide = ({
   imgDescription,
   imgPlaceholderUrl,
 }: {
-  imgPlaceholderUrl?: string;
-  imgUrl: string;
   name: string;
-  imgDescription?: string;
-}) => (
+} & ImageProps) => (
   <div className={`${namespace}-img-slide`}>
     <div className={`${namespace}-img-container`}>
       <LazyLoadImage
@@ -45,10 +47,15 @@ const categoriesArr = categories.map((e) => ({
 }));
 const HomePageCategoriesNav = () => {
   return (
-    <AdaptiveCarousel
-      arr={categoriesArr}
-      classPrefix={`${namespace}-category`}
-    />
+    <>
+      <h3 className={`${namespace}-category-nav-title`}>
+        {"Shop our favorite".toUpperCase()}
+      </h3>
+      <AdaptiveCarousel
+        arr={categoriesArr}
+        classPrefix={`${namespace}-category`}
+      />
+    </>
   );
 };
 export default HomePageCategoriesNav;

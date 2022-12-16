@@ -1,39 +1,43 @@
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import HomePageNav from "./utilities/HomePageNav";
 import HomePageCategoriesNav from "./utilities/HomePageCategoriesNav";
-import { Link } from "react-router-dom";
-
+import HomePageImageBanner from "./utilities/HomePageImageBanner";
+import HomePageImageBannerFull from "./utilities/HomePageImgBannerFull";
 const namespace = "home-pg";
-const IntroBanner = () => {
-  return (
-    <div className={`${namespace}-intro-banner`}>
-      <LazyLoadImage
-        src={""}
-        placeholderSrc={""}
-        useIntersectionObserver
-        effect="blur"
-        alt={""}
-      />
-      <div className={`${namespace}-banner-summary`}>
-        <span> High End Pieces For Home Decor Spaces</span>
-        <Link to="/new-arrivals">{"Shop New Arrivals".toUpperCase()}</Link>
-      </div>
-    </div>
-  );
-};
-const SecondaryBanner = () => {
-  return <div className={`${namespace}-secondary-banner`}></div>;
-};
 const HomePage = () => {
   return (
     <div className={`${namespace}-container`}>
       <div className={`${namespace}-inner-container`}>
         <HomePageNav />
-        <IntroBanner />
-        
+        <HomePageImageBannerFull
+          customClass={`${namespace}-intro-banner`}
+          imgUrl=""
+          btnData={{ text: "Show More".toUpperCase(), url: "" }}
+        >
+          High End Pieces for Home Decor Spaces
+        </HomePageImageBannerFull>
+        <HomePageImageBanner
+          customClass={`${namespace}-img-banner-left`}
+          contentDirection="left"
+          imgUrl=""
+          title="Elevated Design"
+          btnData={{ text: "Show More".toUpperCase(), url: "" }}
+        >
+          Clean lines and subtle curves create a modern, minimalist foundation
+          at the perfect height with lifestyle-enhancing details that upgrade
+          any space.
+        </HomePageImageBanner>
         <HomePageCategoriesNav />
-        <SecondaryBanner />
+        <HomePageImageBanner
+          customClass={`${namespace}-img-banner-right`}
+          contentDirection="right"
+          imgUrl=""
+          title="Elevated Design"
+          btnData={{ text: "Show More".toUpperCase(), url: "" }}
+        >
+          Clean lines and subtle curves create a modern, minimalist foundation
+          at the perfect height with lifestyle-enhancing details that upgrade
+          any space.
+        </HomePageImageBanner>
       </div>
     </div>
   );
