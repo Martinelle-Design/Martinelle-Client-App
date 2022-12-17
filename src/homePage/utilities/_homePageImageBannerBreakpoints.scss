@@ -1,0 +1,48 @@
+@mixin home-pg-img-banner-lg {
+  $namespace: "home-pg-img-banner-full";
+  .#{$namespace}-content-container {
+    font-size: 2.9vw;
+    line-height: 4vw;
+    min-width: unset;
+    .#{$namespace}-content-btn {
+      margin-top: 3.8vw;
+      font-size: 1.5vw;
+    }
+  }
+}
+@mixin home-pg-img-banner-md {
+  $namespace: "home-page-img-banner";
+  .#{$namespace}-container {
+    position: relative;
+    //flex-direction: column;
+  }
+  .#{$namespace}-content-container {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+}
+@mixin home-pg-img-banner-sm {
+    $namespace: "home-page-img-banner";
+  .#{$namespace}-content-title {
+    font-size: 5.2vw;
+    font-weight: 400;
+    margin-bottom: 2.5em;
+    &::after {
+      bottom: -0.8em;
+    }
+  }
+  .#{$namespace}-content-inner-container {
+    display: flex;
+    font-size: 3vw;
+    line-height: 1.7em;
+    margin-bottom: 3em;
+  }
+  .#{$namespace}-content-btn {
+    padding: 1em 4em;
+    font-size: 3vw;
+  }
+}

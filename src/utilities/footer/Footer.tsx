@@ -1,30 +1,30 @@
 import { Link } from "react-router-dom";
 import { getYear } from "date-fns";
-import { v4 as uuid } from "uuid";
+//import { v4 as uuid } from "uuid";
 const currDate = new Date();
 const currYear = getYear(currDate);
 const namespace = "footer";
-type LinkProps = {
-  id: string;
-  url: string;
-  name: string;
-};
-const links: LinkProps[] = [{ url: "/about-us", name: "About Us", id: uuid() }];
+// type LinkProps = {
+//   id: string;
+//   url: string;
+//   name: string;
+// };
+// const links: LinkProps[] = [{ url: "/about-us", name: "About Us", id: uuid() }];
 
-const FooterColumn = ({
-  children,
-  title,
-}: {
-  children: JSX.Element | JSX.Element[] | string;
-  title: string;
-}) => {
-  return (
-    <div className={`${namespace}-column`}>
-      <h3>{title}</h3>
-      {children}
-    </div>
-  );
-};
+// const FooterColumn = ({
+//   children,
+//   title,
+// }: {
+//   children: JSX.Element | JSX.Element[] | string;
+//   title: string;
+// }) => {
+//   return (
+//     <div className={`${namespace}-column`}>
+//       <h3>{title}</h3>
+//       {children}
+//     </div>
+//   );
+// };
 const TopFooterBanner = () => {
   return (
     <div className={`${namespace}-top`} 

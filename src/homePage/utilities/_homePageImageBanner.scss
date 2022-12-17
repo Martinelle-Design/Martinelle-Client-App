@@ -99,8 +99,10 @@ $namespace: "home-pg-img-banner-full";
   padding-top: 5%;
   padding-right: 5%;
   width: 25%;
-  min-width: 200px;
   font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  min-width: 200px;
+
   font-size: 2.2em;
   line-height: 1.5em;
   display: flex;
@@ -114,5 +116,4 @@ $namespace: "home-pg-img-banner-full";
     color: $white;
     width: 100%;
   }
-  //color:
 }

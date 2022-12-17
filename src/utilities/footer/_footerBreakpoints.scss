@@ -1,0 +1,24 @@
+@mixin footer-md {
+  $namespace: "footer";
+  .#{$namespace}-bottom {
+    flex-direction: column;
+    justify-content: center;
+    h3 {
+      margin-right: 0;
+    }
+  }
+  .#{$namespace}-bottom-text-container {
+    margin-top: 1.7em;
+  }
+}
+@mixin footer-sm {
+  $namespace: "footer";
+  .#{$namespace}-bottom {
+    h3 {
+      font-size: 1.5em;
+    }
+  }
+  .#{$namespace}-bottom-text-container {
+    font-size: 0.75em;
+  }
+}

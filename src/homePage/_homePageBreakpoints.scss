@@ -1,6 +1,9 @@
+@import "./utilities/homePageImageBannerBreakpoints";
+@mixin home-pg-lg {
+  @include home-pg-img-banner-lg;
+}
 @mixin home-pg-md {
   $namespace: "home-pg";
-
   .#{$namespace}-category-nav {
     $btnWidth: 3em;
     width: calc(100% - (#{$btnWidth} * 2));
@@ -15,6 +18,27 @@
     width: 13em;
     height: 7.3125em;
   }
+  .#{$namespace}-bottom-banner {
+    flex-wrap: wrap;
+    margin-bottom: 3.5em;
+  }
+  $margin-spacing: 3%;
+  .#{$namespace}-bottom-banner-link {
+    width: calc((100% - #{$margin-spacing}) / 2);
+    &:nth-child(odd) {
+      margin: 0;
+      margin-bottom: $margin-spacing;
+      margin-right: $margin-spacing;
+    }
+    &:nth-child(even) {
+      margin: 0;
+      margin-bottom: $margin-spacing;
+    }
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+  }
+  @include home-pg-img-banner-md;
 }
 @mixin home-pg-sm {
   $namespace: "home-pg";
@@ -32,4 +56,9 @@
     width: 10em;
     height: 5.625em;
   }
+  .#{$namespace}-bottom-banner {
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+  }
+  @include home-pg-img-banner-sm;
 }
