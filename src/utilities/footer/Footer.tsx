@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { getYear } from "date-fns";
+import useWindowWidth from "../../hooks/use-window-width";
 //import { v4 as uuid } from "uuid";
 const currDate = new Date();
 const currYear = getYear(currDate);
@@ -47,12 +48,13 @@ const TopFooterBanner = () => {
   );
 };
 const BottomFooterBanner = () => {
+  const windowWidth = useWindowWidth(576)
   return (
     <div className={`${namespace}-bottom`}>
       <h3>{"Martinelle".toUpperCase()}</h3>
       <div className={`${namespace}-bottom-text-container`}>
         <div className={`${namespace}-bottom-text`}>
-          <span>©{currYear} Martinelle Design. All rights reserved.</span>
+          <span>©{currYear} Martinelle Design. {!windowWidth && <br/>} All rights reserved.</span>
           <Link to="/privacy-policy">Privacy Policy</Link>
           <Link to="/terms">Terms of Use</Link>
         </div>
