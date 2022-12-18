@@ -15,7 +15,9 @@ const AdaptiveCarousel = ({
   arr,
   classPrefix,
   spaceBetween = 20,
+  selectedId,
 }: {
+  selectedId?: string;
   arr: Slide[];
   classPrefix?: string;
   spaceBetween?: number;
@@ -29,6 +31,7 @@ const AdaptiveCarousel = ({
       className={`${namespace}-nav${classPrefix ? ` ${classPrefix}-nav` : ""}`}
     >
       {arr.map((item) => {
+        const isSelected = selectedId === item.id;
         return (
           <SwiperSlide key={item.id} style={{ width: "auto" }}>
             {item.url ? (
@@ -36,7 +39,7 @@ const AdaptiveCarousel = ({
                 to={`/${item.url}`}
                 className={`${namespace}-nav-link${
                   classPrefix ? ` ${classPrefix}-nav-link` : ""
-                }`}
+                }${isSelected ? " selected" : ""}`}
               >
                 {item.children}
               </Link>

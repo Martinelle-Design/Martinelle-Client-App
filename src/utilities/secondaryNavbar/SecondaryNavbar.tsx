@@ -1,5 +1,5 @@
-import AdaptiveCarousel from "../../utilities/adaptiveCarousel/AdaptiveCarousel";
-const namespace = "home-pg";
+import AdaptiveCarousel from "../adaptiveCarousel/AdaptiveCarousel";
+const namespace = "secondary-navbar";
 const productCategories = [
   { name: "New", url: "new" },
   { name: "Best Seller", url: "best-seller-1" },
@@ -15,9 +15,11 @@ const productArr = productCategories.map((e) => ({
   id: e.url,
   children: e.name.toUpperCase(),
 }));
-const HomePageNav = () => {
+const SecondaryNavbar = () => {
   return (
-    <AdaptiveCarousel arr={productArr} classPrefix={namespace} />
+    <div className={`${namespace}-container`}>
+      <AdaptiveCarousel arr={productArr} classPrefix={namespace} />
+    </div>
   );
 };
-export default HomePageNav;
+export default SecondaryNavbar;

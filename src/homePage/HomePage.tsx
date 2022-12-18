@@ -1,4 +1,3 @@
-import HomePageNav from "./utilities/HomePageNav";
 import HomePageCategoriesNav, {
   ImageProps,
   ImageSlide,
@@ -92,7 +91,6 @@ const HomePage = () => {
   return (
     <div className={`${namespace}-container`}>
       <div className={`${namespace}-inner-container`}>
-        <HomePageNav />
         <HomePageImageBannerFull
           customClass={`${namespace}-intro-banner`}
           imgUrl=""
