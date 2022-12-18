@@ -2,13 +2,15 @@
 @import "../src/utilities/utilities";
 @import "../src/homePage/homePage";
 @import "./mediaQueries";
-html, body{
-    margin: 0;
-    padding: 0;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
-button{
-    cursor: pointer;
+button {
+  cursor: pointer;
 }
 #general-app-container {
-    padding-top: $navbar-height;
-  }
+  padding-top: $navbar-height;
+}

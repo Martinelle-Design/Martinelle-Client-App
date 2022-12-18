@@ -112,7 +112,7 @@ $namespace: "home-pg";
       width: 100%;
     }
   }
-  a{
+  a {
     font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin: 2em;
     margin-bottom: 2.2em;
@@ -133,7 +133,7 @@ $namespace: "home-pg";
   padding: 0;
   @include remove-btn-default;
   cursor: pointer;
-  &:first-child{
+  &:first-child {
     margin-left: 0;
   }
   &:last-child {

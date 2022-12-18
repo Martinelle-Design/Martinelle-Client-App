@@ -14,7 +14,7 @@
   $namespace: "home-page-img-banner";
   .#{$namespace}-container {
     position: relative;
-    //flex-direction: column;
+    flex-direction: column;
   }
   .#{$namespace}-content-container {
     position: absolute;
@@ -26,7 +26,7 @@
   }
 }
 @mixin home-pg-img-banner-sm {
-    $namespace: "home-page-img-banner";
+  $namespace: "home-page-img-banner";
   .#{$namespace}-content-title {
     font-size: 5.2vw;
     font-weight: 400;
@@ -35,6 +35,7 @@
       bottom: -0.8em;
     }
   }
+
   .#{$namespace}-content-inner-container {
     display: flex;
     font-size: 3vw;
@@ -42,7 +43,41 @@
     margin-bottom: 3em;
   }
   .#{$namespace}-content-btn {
-    padding: 1em 4em;
-    font-size: 3vw;
+    padding: 0.8em 3em;
+    font-size: 2.5vw;
+  }
+  $namespace: "home-pg-img-banner-full";
+  .#{$namespace}-img-container {
+    position: relative;
+    &::after {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 100%;
+      content: "";
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+  }
+  .#{$namespace}-content-container {
+    $width: 60%;
+    position: absolute;
+    top: 0;
+    left: calc((100% - #{$width}) / 2);
+    height: 100%;
+    width: $width;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    z-index: 1;
+    font-size: 5.2vw;
+    line-height: 1.7em;
+    text-align: center;
+    .#{$namespace}-content-btn {
+      font-size: 2vw;
+      width: auto;
+      padding: 0.8em 1.3em;
+    }
   }
 }

@@ -1,7 +1,8 @@
 //for the banners
 $namespace: "home-page-img-banner";
 .#{$namespace}-container {
-  min-height: calc(80vh - #{$navbar-height});
+  height: calc(80vh - #{$navbar-height});
+  min-height: 25em;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -100,9 +101,7 @@ $namespace: "home-pg-img-banner-full";
   padding-right: 5%;
   width: 25%;
   font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
   min-width: 200px;
-
   font-size: 2.2em;
   line-height: 1.5em;
   display: flex;
