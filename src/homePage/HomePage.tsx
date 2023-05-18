@@ -1,4 +1,4 @@
-import HomePageCategoriesNav, {
+import  {
   ImageProps,
   ImageSlide,
 } from "./utilities/HomePageCategoriesNav";
@@ -20,26 +20,26 @@ const interiorDesignCategories: (ImageProps & {
 })[] = [
   {
     id: uuid(),
-    name: "ARMCHAIRS & SOFAS",
-    url: "",
+    name: "PRIVATE RESIDENTIAL",
+    url: "/services/private-residential",
     imgUrl: "",
   },
   {
     id: uuid(),
-    name: "ARMCHAIRS & SOFAS",
-    url: "",
+    name: "COMMERCIAL",
+    url: "/services/commercial",
     imgUrl: "",
   },
   {
     id: uuid(),
-    name: "ARMCHAIRS & SOFAS",
-    url: "",
+    name: "FURNITURE MANUFACTURING",
+    url: "/services/furniture-manufacturing",
     imgUrl: "",
   },
   {
     id: uuid(),
-    name: "ARMCHAIRS & SOFAS",
-    url: "",
+    name: "HOSPITALITY",
+    url: "/services/hospitality",
     imgUrl: "",
   },
 ];
@@ -102,24 +102,37 @@ const HomePage = () => {
           customClass={`${namespace}-img-banner-left`}
           contentDirection="left"
           imgUrl=""
-          title="Elevated Design"
+          title={"Services".toUpperCase()}
           btnData={{ text: "Show More".toUpperCase(), url: "" }}
         >
-          Clean lines and subtle curves create a modern, minimalist foundation
-          at the perfect height with lifestyle-enhancing details that upgrade
-          any space.
+          <p>
+            Our services offer a customized and comprehensive approach to
+            design. We help you envision the potential of your workplace by
+            ensuring your interior is delivered to the highest quality.
+          </p>
+          <p>
+            Custom designed furniture is our specialty. We create pieces
+            exclusively for your interior. Our team takes pride in assuring each
+            piece not only fits the space perfectly, but that it also reflects
+            our client’s personality.
+          </p>
         </HomePageImageBanner>
-        <HomePageCategoriesNav />
         <HomePageImageBanner
           customClass={`${namespace}-img-banner-right`}
           contentDirection="right"
           imgUrl=""
-          title="Elevated Design"
+          title={"projects".toUpperCase()}
           btnData={{ text: "Show More".toUpperCase(), url: "" }}
         >
-          Clean lines and subtle curves create a modern, minimalist foundation
-          at the perfect height with lifestyle-enhancing details that upgrade
-          any space.
+          <p>
+            Martinelle excels at building character in all our commercial and
+            residential projects. Our priority is to make sure the identity of
+            your brand is present in every corner, detail and accent.
+          </p>
+          <p>
+            We are committed to a design concept that meets your vision from the
+            functionality, aesthetic and ambiance perspective.
+          </p>
         </HomePageImageBanner>
         <HomePageBottomBanner />
       </div>

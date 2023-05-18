@@ -1,15 +1,17 @@
 //colors
-$dark-green: #154E1E;
+$dark-green: #154e1e;
 $green: #44814e;
 $black: #030303;
 $light-gray: #c2c2c2;
 $lighter-gray: #dcdcdc;
 $gray: #c4c4c4;
+$headlineFontColor: #414141;
+$fontColor: #636363;
 $darkest-gray: #939393;
 $light-black: #5e5e5e;
 $darker-gray: #727272;
 $white: #fdfdfd;
-$off-white: #F5F5F5;
+$off-white: #f5f5f5;
 //rest of variables
 $navbar-height: 7rem;
 @mixin remove-btn-default {
@@ -17,12 +19,12 @@ $navbar-height: 7rem;
   border: none;
   outline: none;
 }
-@mixin action-btn-styles ($width: 100%) {
+@mixin action-btn-styles($width: 100%) {
   @include remove-btn-default;
   background: $dark-green;
   color: $white;
   height: $navbar-height * 0.38;
-  width:  $width;
+  width: $width;
   justify-content: center;
   align-items: center;
   font-size: 0.9rem;

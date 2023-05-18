@@ -14,7 +14,6 @@ $namespace: "home-page-img-banner";
   justify-content: center;
   align-items: center;
   width: 100%;
-  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   & > * {
     width: 70%;
   }
@@ -23,11 +22,13 @@ $namespace: "home-page-img-banner";
   margin: auto 0;
 }
 .#{$namespace}-content-title {
+  color: $headlineFontColor;
+  font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   $animation-speed: 0.8s;
   font-size: 1.8em;
   font-weight: 400;
   position: relative;
-  margin-bottom: 2.5em;
+  margin-bottom: 0.8em;
   margin-top: 0;
   opacity: 0;
   transform: translateY(100%);
@@ -35,11 +36,10 @@ $namespace: "home-page-img-banner";
     transform $animation-speed ease-out;
   &::after {
     position: absolute;
-    //transform: translateY(-200%);
     content: "";
-    bottom: -0.8em;
+    bottom: -0.5em;
     left: 0;
-    background-color: $light-black;
+    background-color: $fontColor;
     height: 1px;
     transition: width $animation-speed ease-out;
     width: 0;
@@ -53,20 +53,16 @@ $namespace: "home-page-img-banner";
   }
 }
 .#{$namespace}-content-inner-container {
+  font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: $fontColor;
   display: flex;
+  flex-direction: column;
   font-size: 1em;
   line-height: 1.7em;
   margin-bottom: 3em;
 }
 .#{$namespace}-content-btn {
-  @include remove-btn-default;
-  background-color: $darker-gray;
-  padding: 1em 4em;
-  cursor: pointer;
-  text-decoration: none;
-  color: $white;
-  width: auto;
-  align-self: start;
+  @include action-btn-styles($width: 13rem);
 }
 .#{$namespace}-img-container {
   margin: 0;
@@ -100,8 +96,8 @@ $namespace: "home-pg-img-banner-full";
   padding-top: 5%;
   padding-right: 5%;
   width: 25%;
-  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-width: 200px;
+  color: $fontColor;
   font-size: 2.2em;
   line-height: 1.5em;
   display: flex;
