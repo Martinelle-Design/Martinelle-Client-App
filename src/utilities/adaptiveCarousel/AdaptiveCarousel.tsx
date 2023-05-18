@@ -36,7 +36,7 @@ const AdaptiveCarousel = ({
           <SwiperSlide key={item.id} style={{ width: "auto" }}>
             {item.url ? (
               <Link
-                to={`/${item.url}`}
+                to={`${item.url}`}
                 className={`${namespace}-nav-link${
                   classPrefix ? ` ${classPrefix}-nav-link` : ""
                 }${isSelected ? " selected" : ""}`}

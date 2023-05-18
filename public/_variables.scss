@@ -1,22 +1,32 @@
 //colors
-$dark-green: #37673f;
+$dark-green: #154E1E;
 $green: #44814e;
 $black: #030303;
 $light-gray: #c2c2c2;
 $lighter-gray: #dcdcdc;
 $gray: #c4c4c4;
 $darkest-gray: #939393;
-$light-black: #333333;
-
+$light-black: #5e5e5e;
 $darker-gray: #727272;
 $white: #fdfdfd;
-$off-white: #f3f3f3;
+$off-white: #F5F5F5;
 //rest of variables
-$navbar-height: 5em;
+$navbar-height: 7rem;
 @mixin remove-btn-default {
   background-color: transparent;
   border: none;
   outline: none;
+}
+@mixin action-btn-styles ($width: 100%) {
+  @include remove-btn-default;
+  background: $dark-green;
+  color: $white;
+  height: $navbar-height * 0.38;
+  width:  $width;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  font-family: "Noto Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 @mixin img-fill {
   img {

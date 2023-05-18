@@ -1,6 +1,6 @@
 $namespace: "general-navbar";
 .#{$namespace} {
-  position: fixed;
+  //position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,10 +11,11 @@ $namespace: "general-navbar";
   background-color: white;
   border-bottom: 1px solid $light-gray;
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 5%;
   a {
-    font-family: 'Abyssinica SIL','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 1em;
-    font-size: 1.5em;
+    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    height: 35%;
     text-decoration: none;
     color: $dark-green;
   }
@@ -23,14 +24,8 @@ $namespace: "general-navbar";
   display: flex;
   align-items: center;
   height: 100%;
-  margin-right: 1em;
   & > button {
-    @include remove-btn-default;
-    background: $green;
-    color: $white;
-    height: 55%;
-    padding: 0 1em;
-    font-size: 0.9em;
+    @include action-btn-styles($width: 8.5em);
   }
   button:focus {
     outline: $blue solid 1px;
@@ -39,44 +34,44 @@ $namespace: "general-navbar";
 .#{$namespace}-search-container {
   display: flex;
   align-items: center;
-  height: 40%;
+  height: $navbar-height * 0.38;
+
   background-color: $off-white;
-  border-radius: 0.5em;
   margin-right: 1em;
+
   button {
     @include remove-btn-default;
     font-weight: 600;
-    font-size: 1em;
+    font-size: 0.95em;
     background: none;
     height: 100%;
     color: $light-black;
-    padding: 0 0.75em;
-    padding-right: 0.5em;
+    padding-left: 1em;
+    padding-right: 0.25em;
   }
   button:focus {
     outline: $blue solid 1px;
   }
   input {
-    padding: 0 0.25em;
+    font-family: "Noto Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0 0.75em;
     background: none;
     border: none;
     height: 100%;
     display: flex;
     align-items: center;
-    font-size: 0.9em;
+    font-size: 0.85rem;
     color: $light-black;
-    font-weight: 600;
-    border-radius: 0.5em;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    font-weight: 400;
+    width: 10em;
   }
   input:focus {
     outline: $blue solid 1px;
   }
 
   input::placeholder {
+    font-family: "Noto Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: $darkest-gray;
-
-    font-size: 0.7em;
+    font-size: 0.73em;
   }
 }

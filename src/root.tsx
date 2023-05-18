@@ -11,7 +11,6 @@ const Root = () => {
       <GeneralNavBar />
       <div id={"general-app-container"}>
         <SecondaryNavbar />
-        {/* <UserNavBar /> */}
         <Outlet />
       </div>
       <Footer />

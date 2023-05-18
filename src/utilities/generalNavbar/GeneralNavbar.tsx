@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../../utilities/logo.svg";
 import useDebouncedTextInput from "../../hooks/use-debounced-text-input";
 import useWindowWidth from "../../hooks/use-window-width";
 import PopUpModal from "../popUpModal/PopUpModal";
@@ -34,9 +35,10 @@ const SearchBar = ({ navbarRef }: { navbarRef: HTMLElement | null }) => {
       type={"text"}
       value={textValue}
       onChange={onChange}
-      placeholder={"Search for furniture and more"}
+      placeholder={"Search furniture catalog"}
     />
   );
+
   return (
     <div className={`${namespace}-search-container`}>
       {!smallWindowWidth ? smallWidthBtn : largeWidthBtn}
@@ -68,10 +70,12 @@ const GeneralNavBar = () => {
           <h3>Contact Us</h3>
         </PopUpModal>
       )}
-      <Link to="/"> {"Martinelle".toUpperCase()}</Link>
+      <Link to="/" aria-label="home">
+        {<Logo height={"100%"}/>}
+      </Link>
       <div className={`${namespace}-inner`}>
         <SearchBar navbarRef={navbarRef.current} />
-        <button onClick={() => setContactUs(true)}>Contact Us</button>
+        <button onClick={() => setContactUs(true)}>{"Contact".toUpperCase()}</button>
       </div>
     </nav>
   );
