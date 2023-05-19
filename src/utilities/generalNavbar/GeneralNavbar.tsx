@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../utilities/logo.svg";
 import useDebouncedTextInput from "../../hooks/use-debounced-text-input";
 import useWindowWidth from "../../hooks/use-window-width";
-import PopUpModal from "../popUpModal/PopUpModal";
+// import PopUpModal from "../popUpModal/PopUpModal";
 import useClickOutside from "../../hooks/use-click-outside";
 const namespace = "general-navbar";
 const searchFunc = (str: string) => {};
@@ -81,7 +81,7 @@ const SearchBar = ({ navbarRef }: { navbarRef: HTMLElement | null }) => {
 };
 
 const GeneralNavBar = () => {
-  const [contactUs, setContactUs] = useState(false);
+  // const [contactUs, setContactUs] = useState(false);
   const navbarRef = useRef<null | HTMLElement>(null);
   const [mounted, setMounted] = useState(false);
   //here to set ref
