@@ -21,4 +21,6 @@
 }
 
 @media (any-hover: hover) {
+  @include utilities-hover;
+  @include home-pg-hover;
 }

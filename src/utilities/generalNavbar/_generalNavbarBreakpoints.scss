@@ -84,3 +84,11 @@
     }
   }
 }
+@mixin general-navbar-hover {
+  $namespace: "general-navbar";
+  .#{$namespace}-inner {
+    & > button {
+      @include action-btn-hover-styles;
+    }
+  }
+}

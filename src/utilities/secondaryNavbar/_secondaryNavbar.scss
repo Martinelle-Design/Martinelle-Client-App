@@ -16,11 +16,14 @@ $namespace: "secondary-navbar";
 }
 
 .#{$namespace}-nav-link {
+  position: relative;
+  display: block;
   font-size: 0.9em;
   color: $light-black;
   font-weight: 400;
   box-sizing: border-box;
   padding: 0 1em;
+  padding-bottom: 0.3em;
   text-align: center;
   font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

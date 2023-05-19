@@ -41,7 +41,7 @@ const AdaptiveCarousel = ({
                   classPrefix ? ` ${classPrefix}-nav-link` : ""
                 }${isSelected ? " selected" : ""}`}
               >
-                {item.children}
+                <span> {item.children}</span>
               </Link>
             ) : (
               item.children

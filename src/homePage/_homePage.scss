@@ -39,7 +39,6 @@ $namespace: "home-pg";
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: black;
   @include img-fill;
 }
 .#{$namespace}-img-container {
@@ -63,7 +62,7 @@ $namespace: "home-pg";
 }
 .#{$namespace}-categories-nav-link {
   font-size: 0.9em;
-  color: $black;
+  color: $headlineFontColor;
   font-weight: 700;
   font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -77,30 +76,28 @@ $namespace: "home-pg";
   align-items: center;
   h3 {
     position: relative;
-    font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 500;
+    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    font-weight: 400;
     text-align: center;
     width: 100%;
-    font-size: 1.4em;
-    margin-bottom: 1em;
+    font-size: 2rem;
+    color: $headlineFontColor;
+    margin-bottom: 0.6em;
     &::after {
       position: absolute;
-      bottom: -1em;
+      bottom: -0.6em;
       left: 0;
       height: 1px;
       content: "";
-      background-color: $darkest-gray;
+      background-color: $gray;
       width: 100%;
     }
   }
   a {
-    font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    margin: 2em;
-    margin-bottom: 2.2em;
-    background-color: $darker-gray;
-    color: $white;
-    text-decoration: none;
-    padding: 0.7em 3em;
+    @include action-btn-styles($width: 12rem);
+    margin-top: 3em;
+    margin-bottom: 3.5em;
   }
 }
 .#{$namespace}-bottom-banner {
@@ -109,10 +106,11 @@ $namespace: "home-pg";
   justify-content: space-between;
 }
 .#{$namespace}-bottom-banner-link {
+  text-decoration: none;
+  color: $black;
   width: 100%;
   margin: 0 2%;
   padding: 0;
-  @include remove-btn-default;
   cursor: pointer;
   &:first-child {
     margin-left: 0;
@@ -123,14 +121,15 @@ $namespace: "home-pg";
   .#{$namespace}-img-slide {
     width: 100%;
     height: 100%;
-    background-color: $gray;
   }
   .#{$namespace}-img-title {
-    font-size: 1em;
+    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
   }
   .#{$namespace}-img-container {
     width: 100%;
     height: 100%;
     aspect-ratio: 12/16;
+        background-color: $gray;
   }
 }

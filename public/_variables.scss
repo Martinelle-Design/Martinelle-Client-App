@@ -1,12 +1,14 @@
 //colors
 $dark-green: #154e1e;
+$headlineFontColor: #414141;
+$fontColor: #636363;
+$black: #2d2d2d;
 $green: #44814e;
-$black: #030303;
+//gray shades
 $light-gray: #c2c2c2;
 $lighter-gray: #dcdcdc;
 $gray: #c4c4c4;
-$headlineFontColor: #414141;
-$fontColor: #636363;
+
 $darkest-gray: #939393;
 $light-black: #5e5e5e;
 $darker-gray: #727272;
@@ -18,17 +20,52 @@ $navbar-height: 7rem;
   background-color: transparent;
   border: none;
   outline: none;
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: normal;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-@mixin action-btn-styles($width: 100%) {
+@mixin action-btn-styles($width: 100%, $bgColor: $dark-green) {
   @include remove-btn-default;
-  background: $dark-green;
+  position: relative;
+  background: $bgColor;
   color: $white;
   height: $navbar-height * 0.38;
   width: $width;
+  font-weight: 500;
   justify-content: center;
   align-items: center;
   font-size: 0.9rem;
   font-family: "Noto Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1;
+}
+@mixin action-btn-hover-styles($bgColor: $dark-green) {
+  transition: all 0.3s ease-out;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken($bgColor, 4%);
+    transition: all 0.3s;
+    z-index: -1;
+  }
+  &:hover {
+    transform: scale(1.05);
+
+    &:before {
+      width: 100%;
+    }
+  }
 }
 @mixin img-fill {
   img {

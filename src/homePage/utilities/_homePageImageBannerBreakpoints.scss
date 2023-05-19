@@ -81,3 +81,15 @@
     }
   }
 }
+@mixin home-pg-img-banner-hover {
+  $namespace: "home-page-img-banner";
+  .#{$namespace}-content-btn {
+    @include action-btn-hover-styles;
+  }
+  $namespace: "home-pg-img-banner-full";
+  .#{$namespace}-content-container {
+    .#{$namespace}-content-btn {
+      @include action-btn-hover-styles($bgColor: $black);
+    }
+  }
+}

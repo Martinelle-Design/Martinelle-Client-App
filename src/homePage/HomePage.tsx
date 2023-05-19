@@ -47,8 +47,8 @@ const HomePageBottomBanner = () => {
   return (
     <>
       <div className={`${namespace}-bottom-banner-action`}>
-        <h3>Browse Our Interior Designs</h3>
-        <Link to="/catalog">Shop Now</Link>
+        <h3>Browse Interior Projects</h3>
+        <Link to="/projects">EXPLORE</Link>
       </div>
 
       <div className={`${namespace}-bottom-banner`}>
@@ -94,16 +94,16 @@ const HomePage = () => {
         <HomePageImageBannerFull
           customClass={`${namespace}-intro-banner`}
           imgUrl=""
-          btnData={{ text: "Show More".toUpperCase(), url: "" }}
+          btnData={{ text: "Learn More".toUpperCase(), url: "/about" }}
         >
-          High End Pieces for Home Decor Spaces
+          Creating Unique Functional Interiors & Crafting Custom Furniture
         </HomePageImageBannerFull>
         <HomePageImageBanner
           customClass={`${namespace}-img-banner-left`}
           contentDirection="left"
           imgUrl=""
           title={"Services".toUpperCase()}
-          btnData={{ text: "Show More".toUpperCase(), url: "" }}
+          btnData={{ text: "Show More".toUpperCase(), url: "/services" }}
         >
           <p>
             Our services offer a customized and comprehensive approach to
@@ -122,7 +122,7 @@ const HomePage = () => {
           contentDirection="right"
           imgUrl=""
           title={"projects".toUpperCase()}
-          btnData={{ text: "Show More".toUpperCase(), url: "" }}
+          btnData={{ text: "Show More".toUpperCase(), url: "/projects" }}
         >
           <p>
             Martinelle excels at building character in all our commercial and

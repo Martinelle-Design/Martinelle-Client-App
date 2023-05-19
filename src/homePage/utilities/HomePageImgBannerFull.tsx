@@ -3,6 +3,8 @@ import { HomePageImageBannerContentProps } from "./HomePageImageBanner";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useRef } from "react";
+import useIntersectionObserver from "../../hooks/use-intersection-observer";
 
 const namespace = "home-pg-img-banner-full";
 const HomePageImageBannerFull = ({
@@ -14,6 +16,9 @@ const HomePageImageBannerFull = ({
   btnData,
 }: { customClass: string } & ImageProps &
   Omit<HomePageImageBannerContentProps, "title">) => {
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const titleEntry = useIntersectionObserver(titleRef, {});
+  const isTitleVisible = !!titleEntry?.isIntersecting;
   return (
     <div
       className={`${namespace}-img-container${
@@ -28,17 +33,27 @@ const HomePageImageBannerFull = ({
         alt={imgDescription}
       />
       <div className={`${namespace}-content-container`}>
-        {children}
+        <h3
+          ref={titleRef}
+          className={`${namespace}-content-title${
+            isTitleVisible ? ` show` : ""
+          }`}
+        >
+          {children}
+        </h3>
         {btnData.url ? (
           <Link
-            className={`${namespace}-btn`}
+            className={`${namespace}-content-btn`}
             to={btnData.url}
             onClick={btnData.onClick}
           >
             {btnData.text}
           </Link>
         ) : (
-          <button className={`${namespace}-content-btn`} onClick={btnData.onClick}>
+          <button
+            className={`${namespace}-content-btn`}
+            onClick={btnData.onClick}
+          >
             {btnData.text}
           </button>
         )}

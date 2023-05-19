@@ -1,5 +1,6 @@
 @import "./popUpModal/popUpModalBreakpoints";
 @import "./generalNavbar/generalNavbarBreakpoints";
+@import "./secondaryNavbar/secondaryNavbarBreakpoints";
 @import "./footer/footerBreakpoints";
 // @mixin utilities- {
 // }
@@ -12,4 +13,8 @@
   @include pop-up-modal-sm;
   @include general-navbar-sm;
   @include footer-sm;
+}
+@mixin utilities-hover{
+  @include general-navbar-hover;
+  @include secondary-navbar-hover;
 }

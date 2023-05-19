@@ -62,3 +62,18 @@
   }
   @include home-pg-img-banner-sm;
 }
+@mixin home-pg-hover {
+  @include home-pg-img-banner-hover;
+  $namespace: "home-pg";
+  .#{$namespace}-bottom-banner-action {
+    a {
+      @include action-btn-hover-styles;
+    }
+  }
+  .#{$namespace}-bottom-banner-link {
+    transition: transform 0.3s ease-out;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
