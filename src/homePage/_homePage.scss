@@ -42,8 +42,6 @@ $namespace: "home-pg";
   @include img-fill;
 }
 .#{$namespace}-img-container {
-  width: 16em;
-  height: 9em;
   margin: 0;
   padding: 0;
   & > span {
@@ -132,7 +130,6 @@ $namespace: "home-pg";
   }
   .#{$namespace}-img-container {
     width: 100%;
-    height: 100%;
     aspect-ratio: 12/16;
     background-color: $gray;
   }
