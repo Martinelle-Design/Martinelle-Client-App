@@ -90,19 +90,24 @@ const GeneralNavBar = () => {
   }, [mounted]);
   return (
     <nav ref={navbarRef} className={`${namespace}`}>
-      {contactUs && (
+      {/* {contactUs && (
         <PopUpModal onClose={() => setContactUs(false)}>
           <h3>Contact Us</h3>
         </PopUpModal>
-      )}
+      )} */}
       <Link to="/" aria-label="home">
         {<Logo height={"100%"} />}
       </Link>
       <div className={`${namespace}-inner`}>
         <SearchBar navbarRef={navbarRef.current} />
-        <button onClick={() => setContactUs(true)}>
+        <Link to="/contact" aria-label="contact">
           {"Contact".toUpperCase()}
-        </button>
+        </Link>
+        {/* <button
+          //onClick={() => setContactUs(true)}
+        >
+          {"Contact".toUpperCase()}
+        </button> */}
       </div>
     </nav>
   );

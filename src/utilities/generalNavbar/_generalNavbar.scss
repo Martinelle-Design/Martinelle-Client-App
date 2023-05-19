@@ -26,10 +26,10 @@ $namespace: "general-navbar";
   display: flex;
   align-items: center;
   height: 100%;
-  & > button {
+  & > a {
     @include action-btn-styles($width: 8.5em);
   }
-  button:focus {
+  a:focus {
     outline: $blue solid 1px;
   }
 }
