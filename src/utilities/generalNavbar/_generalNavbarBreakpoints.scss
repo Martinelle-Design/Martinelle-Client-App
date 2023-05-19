@@ -42,7 +42,7 @@
     }
   }
   .#{$namespace}-inner {
-    & > button {
+    & > a {
       @include action-btn-styles(
         $width: math.div($small-navbar-height, 7) * 8.5,
         $navbar-height: $small-navbar-height
@@ -143,7 +143,7 @@
 @mixin general-navbar-hover {
   $namespace: "general-navbar";
   .#{$namespace}-inner {
-    & > button {
+    & > a {
       @include action-btn-hover-styles;
     }
   }
