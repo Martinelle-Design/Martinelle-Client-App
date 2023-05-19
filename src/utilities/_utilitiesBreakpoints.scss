@@ -8,14 +8,16 @@
   @include pop-up-modal-md;
   @include general-navbar-md;
   @include footer-md;
+  @include secondary-navbar-md;
 }
 @mixin utilities-sm {
   @include pop-up-modal-sm;
   @include general-navbar-sm;
   @include footer-sm;
+  @include secondary-navbar-sm;
 }
-@mixin utilities-hover{
+@mixin utilities-hover {
   @include general-navbar-hover;
   @include secondary-navbar-hover;
-  @include footer-hover; 
+  @include footer-hover;
 }

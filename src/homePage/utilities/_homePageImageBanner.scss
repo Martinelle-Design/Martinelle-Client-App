@@ -1,14 +1,18 @@
 //for the banners
 $namespace: "home-page-img-banner";
 .#{$namespace}-container {
-  height: calc(80vh - #{$navbar-height});
-  min-height: 30em;
+  position: relative;
+  //min-height: calc(100vh - #{$navbar-height});
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .#{$namespace}-content-container {
+    padding: 5% 0;
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,11 +73,20 @@ $namespace: "home-page-img-banner";
   @include action-btn-styles($width: 13rem);
 }
 .#{$namespace}-img-container {
+  position: relative;
+  z-index: 0;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: black;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+  }
   @include img-fill;
   & > span {
     width: 100%;
@@ -93,23 +106,26 @@ $namespace: "home-pg-img-banner-full";
   }
 }
 .#{$namespace}-content-container {
+  position: relative;
+  z-index: 2;
   $animation-speed: 0.8s;
   font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   position: absolute;
-  box-sizing: border-box;
-  padding: 0 5%;
   top: 0;
   right: 0;
+  box-sizing: border-box;
+  padding: 0 5%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 35%;
-  min-width: 200px;
+  min-width: 350px;
   background-color: rgba(255, 255, 255, 0.35);
   overflow: hidden;
   h3 {
-    width: 180%;
+    margin: 0;
+    width: 193%;
     transition: transform $animation-speed ease-out,
       width $animation-speed * 1.2 ease-out,
       letter-spacing $animation-speed * 1.2 ease-out;
@@ -117,8 +133,9 @@ $namespace: "home-pg-img-banner-full";
     color: $black;
     font-size: 1.8rem;
     line-height: 1.7em;
-    transform: translateX(100px);
+    transform: translateX(3.5em);
     letter-spacing: 0.4em;
+    margin-bottom: 0.8em;
   }
   .show {
     width: 100%;

@@ -3,6 +3,7 @@
   @include home-pg-img-banner-lg;
 }
 @mixin home-pg-md {
+  @include home-pg-img-banner-md;
   $namespace: "home-pg";
   .#{$namespace}-category-nav {
     $btnWidth: 3em;
@@ -38,7 +39,6 @@
       margin-bottom: 0;
     }
   }
-  @include home-pg-img-banner-md;
 }
 @mixin home-pg-sm {
   $namespace: "home-pg";

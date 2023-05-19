@@ -1,20 +1,73 @@
+@use "sass:math";
 @mixin general-navbar-md {
   $namespace: "general-navbar";
+  .#{$namespace} {
+    height: $medium-navbar-height;
+  }
+  .#{$namespace}-inner {
+    & > button {
+      @include action-btn-styles(
+        $width: math.div($medium-navbar-height, 7) * 8.5,
+        $navbar-height: $medium-navbar-height
+      );
+    }
+  }
+  .#{$namespace}-search-container {
+    height: $medium-navbar-height * 0.38;
+    margin-right: 1em;
+
+    button {
+      font-size: 0.95em;
+      padding-left: 1em;
+      padding-right: 0.25em;
+    }
+    input {
+      padding: 0 0.75em;
+      font-size: 0.85rem;
+      width: 10em;
+    }
+    input::placeholder {
+      font-size: 0.73em;
+    }
+  }
 }
 
 @mixin general-navbar-sm {
   $namespace: "general-navbar";
+
   .#{$namespace} {
+    height: $small-navbar-height;
     a {
       font-size: 1.1em;
+    }
+  }
+  .#{$namespace}-inner {
+    & > button {
+      @include action-btn-styles(
+        $width: math.div($small-navbar-height, 7) * 8.5,
+        $navbar-height: $small-navbar-height
+      );
+    }
+  }
+  .#{$namespace}-search-container {
+    height: $small-navbar-height * 0.38;
+    margin-right: 1em;
+    input {
+      padding: 0 0.75em;
+      font-size: 0.85rem;
+      width: 10em;
+    }
+    input::placeholder {
+      font-size: 0.73em;
     }
   }
   .#{$namespace}-search-container {
     margin: 0 1em;
     button {
+      font-size: 0.7em;
+      box-sizing: border-box;
       padding: 0;
-      padding-right: 0.5em;
-      padding-left: 0.5em;
+      aspect-ratio: 1/1;
     }
   }
   .#{$namespace}-search-input {
@@ -63,7 +116,7 @@
     position: absolute;
     width: 100%;
     display: flex;
-    top: $navbar-height;
+    top: $small-navbar-height;
     left: 0;
     height: 0;
     visibility: hidden;
@@ -76,11 +129,14 @@
       border: none;
       border-top: 1px solid $light-gray;
       border-bottom: 1px solid $light-gray;
+      background-color: $white;
+      height: 100%;
     }
     &.show {
       animation: show 0.2s ease-out;
       visibility: visible;
       height: 3em;
+      background-color: $white;
     }
   }
 }

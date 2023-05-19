@@ -1,13 +1,13 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, RefObject } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../utilities/logo.svg";
 import useDebouncedTextInput from "../../hooks/use-debounced-text-input";
 import useWindowWidth from "../../hooks/use-window-width";
 import PopUpModal from "../popUpModal/PopUpModal";
-
+import useClickOutside from "../../hooks/use-click-outside";
 const namespace = "general-navbar";
 const searchFunc = (str: string) => {};
 const SearchBar = ({ navbarRef }: { navbarRef: HTMLElement | null }) => {
@@ -17,6 +17,20 @@ const SearchBar = ({ navbarRef }: { navbarRef: HTMLElement | null }) => {
   });
   const smallWindowWidth = useWindowWidth(576);
   const [search, setSearch] = useState(false);
+  const searchUpdatingRef = useRef(false);
+  const {
+    ref: searchContainerRef,
+    isClickOutside,
+    setisClickOutside,
+  } = useClickOutside(false);
+  useEffect(() => {
+    if (!isClickOutside && !searchUpdatingRef.current)
+      setSearch((state) => {
+        console.log(!state)
+        if (state) return !state;
+        else return state;
+      });
+  }, [isClickOutside, search]);
   const largeWidthBtn = (
     <button aria-label="search catalog" onClick={() => searchFunc(textValue)}>
       <FontAwesomeIcon icon={faSearch} />
@@ -25,7 +39,16 @@ const SearchBar = ({ navbarRef }: { navbarRef: HTMLElement | null }) => {
   const smallWidthBtn = (
     <button
       aria-label="search catalog"
-      onClick={() => setSearch((state) => !state)}
+      onClick={() =>
+        setSearch((state) => {
+          searchUpdatingRef.current = true;
+          setTimeout(() => {
+            searchUpdatingRef.current = false;
+            if (!state) setisClickOutside(true);
+          }, 0);
+          return !state;
+        })
+      }
     >
       <FontAwesomeIcon icon={faSearch} />
     </button>
@@ -46,7 +69,10 @@ const SearchBar = ({ navbarRef }: { navbarRef: HTMLElement | null }) => {
       {!smallWindowWidth &&
         navbarRef &&
         createPortal(
-          <div className={`${namespace}-search-input${search ? " show" : ""}`}>
+          <div
+            ref={searchContainerRef as RefObject<HTMLDivElement>}
+            className={`${namespace}-search-input${search ? " show" : ""}`}
+          >
             {inputEl}
           </div>,
           navbarRef
@@ -71,11 +97,13 @@ const GeneralNavBar = () => {
         </PopUpModal>
       )}
       <Link to="/" aria-label="home">
-        {<Logo height={"100%"}/>}
+        {<Logo height={"100%"} />}
       </Link>
       <div className={`${namespace}-inner`}>
         <SearchBar navbarRef={navbarRef.current} />
-        <button onClick={() => setContactUs(true)}>{"Contact".toUpperCase()}</button>
+        <button onClick={() => setContactUs(true)}>
+          {"Contact".toUpperCase()}
+        </button>
       </div>
     </nav>
   );

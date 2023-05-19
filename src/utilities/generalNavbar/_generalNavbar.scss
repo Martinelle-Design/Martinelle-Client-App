@@ -1,6 +1,8 @@
 $namespace: "general-navbar";
 .#{$namespace} {
   //position: fixed;
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,7 +10,7 @@ $namespace: "general-navbar";
   left: 0;
   height: $navbar-height;
   z-index: 10;
-  background-color: white;
+  background-color: $white;
   border-bottom: 1px solid $light-gray;
   width: 100%;
   box-sizing: border-box;

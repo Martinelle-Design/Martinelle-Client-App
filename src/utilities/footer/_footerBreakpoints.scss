@@ -1,25 +1,51 @@
 @mixin footer-md {
   $namespace: "footer";
-  .#{$namespace}-bottom {
-    flex-direction: column;
+  .#{$namespace}-top {
     justify-content: center;
-    h3 {
-      margin-right: 0;
+    a {
+      margin: 1rem 0;
     }
   }
-  .#{$namespace}-bottom-text-container {
-    margin-top: 1.7em;
+  .#{$namespace}-top-text {
+    justify-content: center;
+    span {
+      font-size: 0.9rem;
+    }
+    a {
+      height: 1.8rem;
+      font-size: 0.9rem;
+    }
+  }
+  .#{$namespace}-bottom {
+    position: relative;
+    padding-top: 3em;
+    padding-bottom: 2em;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    svg {
+      height: 100%;
+    }
   }
 }
 @mixin footer-sm {
   $namespace: "footer";
-  .#{$namespace}-bottom {
-    h3 {
-      font-size: 1.5em;
+  .#{$namespace}-top {
+    .social-media-container {
+      a {
+        height: 2rem;
+        font-size: 1rem;
+      }
     }
   }
-  .#{$namespace}-bottom-text-container {
-    font-size: 0.75em;
+  .#{$namespace}-top-text {
+    span {
+      font-size: 0.8rem;
+    }
+    a {
+      height: 1.5rem;
+      font-size: 0.8rem;
+    }
   }
 }
 @mixin footer-hover {
