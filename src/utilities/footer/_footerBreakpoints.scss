@@ -22,3 +22,17 @@
     font-size: 0.75em;
   }
 }
+@mixin footer-hover {
+  $namespace: "footer";
+  .#{$namespace}-top {
+    .social-media-container {
+      a {
+        transition: transform ease-out 0.25s;
+        &:hover {
+          background-color: darken($white, 4%);
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

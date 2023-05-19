@@ -101,13 +101,13 @@ $namespace: "home-pg";
   }
 }
 .#{$namespace}-bottom-banner {
-  margin-bottom: 5em;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 3.5rem;
 }
 .#{$namespace}-bottom-banner-link {
   text-decoration: none;
-  color: $black;
+  color: $headlineFontColor;
   width: 100%;
   margin: 0 2%;
   padding: 0;
@@ -131,5 +131,26 @@ $namespace: "home-pg";
     height: 100%;
     aspect-ratio: 12/16;
         background-color: $gray;
+  }
+}
+.#{$namespace}-bottom-banner-contact-action{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-bottom: 5.5rem;
+  h3{
+    font-size: 1.1rem;
+    font-family: 'Vollkorn','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: $headlineFontColor;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
+  a{
+    @include action-btn-styles($width: 8.5rem); 
   }
 }

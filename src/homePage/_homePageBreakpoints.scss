@@ -76,4 +76,9 @@
       transform: scale(1.05);
     }
   }
+  .#{$namespace}-bottom-banner-contact-action {
+    a {
+      @include action-btn-hover-styles;
+    }
+  }
 }

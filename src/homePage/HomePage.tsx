@@ -84,6 +84,10 @@ const HomePageBottomBanner = () => {
           return el;
         })}
       </div>
+      <div className={`${namespace}-bottom-banner-contact-action`}>
+        <h3>CONNECT WITH US</h3>
+        <Link to="/contact">CONTACT</Link>
+      </div>
     </>
   );
 };
@@ -135,6 +139,7 @@ const HomePage = () => {
           </p>
         </HomePageImageBanner>
         <HomePageBottomBanner />
+        
       </div>
     </div>
   );

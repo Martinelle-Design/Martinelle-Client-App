@@ -17,4 +17,5 @@
 @mixin utilities-hover{
   @include general-navbar-hover;
   @include secondary-navbar-hover;
+  @include footer-hover; 
 }

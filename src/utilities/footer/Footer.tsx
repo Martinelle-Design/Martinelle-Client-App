@@ -1,68 +1,59 @@
 import { Link } from "react-router-dom";
 import { getYear } from "date-fns";
+import { ReactComponent as Logo } from "../logo.svg";
+import { ReactComponent as LinkedInIcon } from "../linkedinIcon.svg";
+import { ReactComponent as EmailIcon } from "../emailIcon.svg";
 import useWindowWidth from "../../hooks/use-window-width";
 //import { v4 as uuid } from "uuid";
 const currDate = new Date();
 const currYear = getYear(currDate);
 const namespace = "footer";
-// type LinkProps = {
-//   id: string;
-//   url: string;
-//   name: string;
-// };
-// const links: LinkProps[] = [{ url: "/about-us", name: "About Us", id: uuid() }];
-
-// const FooterColumn = ({
-//   children,
-//   title,
-// }: {
-//   children: JSX.Element | JSX.Element[] | string;
-//   title: string;
-// }) => {
-//   return (
-//     <div className={`${namespace}-column`}>
-//       <h3>{title}</h3>
-//       {children}
-//     </div>
-//   );
-// };
-const TopFooterBanner = () => {
+const SocialMedia = () => {
   return (
-    <div className={`${namespace}-top`} 
-    //remove this. only for layout testing
-    style={{ minHeight: "20em" }}>
-      {/* <FooterColumn title="Our Company">
-        <>
-          {links.map((link) => (
-            <Link
-              className={`${namespace}-column-link`}
-              key={link.id}
-              to={link.url}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </>
-      </FooterColumn> */}
+    <div className="social-media-container">
+      <a
+        href="https://www.linkedin.com/in/martinelledesign/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <LinkedInIcon />
+      </a>
+      <a
+        href={`mailto:${process.env.REACT_APP_SUPPORT_EMAIL}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <EmailIcon />
+      </a>
+    </div>
+  );
+};
+const TopFooterBanner = () => {
+  const windowWidth = useWindowWidth(576);
+  return (
+    <div className={`${namespace}-top`}>
+      <div className={`${namespace}-top-text-container`}>
+        <div className={`${namespace}-top-text`}>
+          <span>
+            © Martinelle Design {currYear}. {!windowWidth && <br />} All rights
+            reserved.
+          </span>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/terms">Terms of Use</Link>
+        </div>
+        {/* <div className={`${namespace}-top-text-support`}>
+          For additional assistance, please call{" "}
+          {process.env.REACT_APP_SUPPORT_NUMBER}
+        </div> */}
+      </div>
+      <SocialMedia />
     </div>
   );
 };
 const BottomFooterBanner = () => {
-  const windowWidth = useWindowWidth(576)
   return (
     <div className={`${namespace}-bottom`}>
-      <h3>{"Martinelle".toUpperCase()}</h3>
-      <div className={`${namespace}-bottom-text-container`}>
-        <div className={`${namespace}-bottom-text`}>
-          <span>©{currYear} Martinelle Design. {!windowWidth && <br/>} All rights reserved.</span>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms">Terms of Use</Link>
-        </div>
-        <div className={`${namespace}-bottom-text-support`}>
-          For additional assistance, please call{" "}
-          {process.env.REACT_APP_SUPPORT_NUMBER}
-        </div>
-      </div>
+      <Logo />
     </div>
   );
 };
