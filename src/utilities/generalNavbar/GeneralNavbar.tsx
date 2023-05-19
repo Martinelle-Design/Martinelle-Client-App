@@ -26,7 +26,6 @@ const SearchBar = ({ navbarRef }: { navbarRef: HTMLElement | null }) => {
   useEffect(() => {
     if (!isClickOutside && !searchUpdatingRef.current)
       setSearch((state) => {
-        console.log(!state)
         if (state) return !state;
         else return state;
       });

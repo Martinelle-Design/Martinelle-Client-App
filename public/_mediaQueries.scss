@@ -13,9 +13,6 @@
 }
 
 @media (max-width: 575px) {
-  #general-app-container {
-    padding-bottom: $navbar-height;
-  }
   @include utilities-sm;
   @include home-pg-sm;
 }

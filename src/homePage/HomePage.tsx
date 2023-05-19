@@ -1,7 +1,4 @@
-import  {
-  ImageProps,
-  ImageSlide,
-} from "./utilities/HomePageCategoriesNav";
+import { ImageProps, ImageSlide } from "./utilities/HomePageCategoriesNav";
 import HomePageImageBanner from "./utilities/HomePageImageBanner";
 import HomePageImageBannerFull from "./utilities/HomePageImgBannerFull";
 import { v4 as uuid } from "uuid";
@@ -102,44 +99,46 @@ const HomePage = () => {
         >
           Creating Unique Functional Interiors & Crafting Custom Furniture
         </HomePageImageBannerFull>
-        <HomePageImageBanner
-          customClass={`${namespace}-img-banner-left`}
-          contentDirection="left"
-          imgUrl=""
-          title={"Services".toUpperCase()}
-          btnData={{ text: "Show More".toUpperCase(), url: "/services" }}
-        >
-          <p>
-            Our services offer a customized and comprehensive approach to
-            design. We help you envision the potential of your workplace by
-            ensuring your interior is delivered to the highest quality.
-          </p>
-          <p>
-            Custom designed furniture is our specialty. We create pieces
-            exclusively for your interior. Our team takes pride in assuring each
-            piece not only fits the space perfectly, but that it also reflects
-            our client’s personality.
-          </p>
-        </HomePageImageBanner>
-        <HomePageImageBanner
-          customClass={`${namespace}-img-banner-right`}
-          contentDirection="right"
-          imgUrl=""
-          title={"projects".toUpperCase()}
-          btnData={{ text: "Show More".toUpperCase(), url: "/projects" }}
-        >
-          <p>
-            Martinelle excels at building character in all our commercial and
-            residential projects. Our priority is to make sure the identity of
-            your brand is present in every corner, detail and accent.
-          </p>
-          <p>
-            We are committed to a design concept that meets your vision from the
-            functionality, aesthetic and ambiance perspective.
-          </p>
-        </HomePageImageBanner>
+        <div className={`${namespace}-banner-containers`}>
+          <HomePageImageBanner
+            customClass={`${namespace}-img-banner-left`}
+            contentDirection="left"
+            imgUrl=""
+            title={"Services".toUpperCase()}
+            btnData={{ text: "Show More".toUpperCase(), url: "/services" }}
+          >
+            <p>
+              Our services offer a customized and comprehensive approach to
+              design. We help you envision the potential of your workplace by
+              ensuring your interior is delivered to the highest quality.
+            </p>
+            <p>
+              Custom designed furniture is our specialty. We create pieces
+              exclusively for your interior. Our team takes pride in assuring
+              each piece not only fits the space perfectly, but that it also
+              reflects our client’s personality.
+            </p>
+          </HomePageImageBanner>
+          <HomePageImageBanner
+            customClass={`${namespace}-img-banner-right`}
+            contentDirection="right"
+            imgUrl=""
+            title={"projects".toUpperCase()}
+            btnData={{ text: "Show More".toUpperCase(), url: "/projects" }}
+          >
+            <p>
+              Martinelle excels at building character in all our commercial and
+              residential projects. Our priority is to make sure the identity of
+              your brand is present in every corner, detail and accent.
+            </p>
+            <p>
+              We are committed to a design concept that meets your vision from
+              the functionality, aesthetic and ambiance perspective.
+            </p>
+          </HomePageImageBanner>
+        </div>
+
         <HomePageBottomBanner />
-        
       </div>
     </div>
   );
