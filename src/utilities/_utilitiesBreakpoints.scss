@@ -2,6 +2,7 @@
 @import "./generalNavbar/generalNavbarBreakpoints";
 @import "./secondaryNavbar/secondaryNavbarBreakpoints";
 @import "./footer/footerBreakpoints";
+@import "./pageTitle/pageTitleBreakpoints";
 // @mixin utilities- {
 // }
 @mixin utilities-md {
@@ -9,12 +10,14 @@
   @include general-navbar-md;
   @include footer-md;
   @include secondary-navbar-md;
+  @include pg-title-md;
 }
 @mixin utilities-sm {
   @include pop-up-modal-sm;
   @include general-navbar-sm;
   @include footer-sm;
   @include secondary-navbar-sm;
+  @include pg-title-sm;
 }
 @mixin utilities-hover {
   @include general-navbar-hover;

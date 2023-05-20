@@ -1,6 +1,8 @@
 @import "../src/utilities/utilitiesBreakpoints";
 @import "../src/homePage/homePageBreakpoints";
 @import "../src/aboutPage/aboutPageBreakpoints";
+@import '../src/servicesPage/servicesPageBreakpoints';
+
 @media (min-width: 992px) {
 }
 
@@ -12,12 +14,14 @@
   @include utilities-md;
   @include home-pg-md;
   @include about-pg-md;
+  @include services-pg-md; 
 }
 
 @media (max-width: 575px) {
   @include utilities-sm;
   @include home-pg-sm;
   @include about-pg-sm;
+  @include services-pg-sm;
 }
 
 @media (any-hover: hover) {

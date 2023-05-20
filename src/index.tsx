@@ -17,16 +17,19 @@ import Root from "./root";
 // );
 const AboutPage = lazy(() => import("./aboutPage/AboutPage"));
 const HomePage = lazy(() => import("./homePage/HomePage"));
+const ServicesPage = lazy(() => import("./servicesPage/ServicesPage"));
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route index element={<HomePage />} />
       <Route path="home/*" element={<HomePage />} />
+      <Route path="services/*" element={<ServicesPage />} />
       {/* <Route path="dashboard/*" element={<DashboardPage />} />
         <Route path="settings/*" element={<SettingsPage />} />
         <Route path="scheduling/*" element={<SchedulingPage />} />
-        <Route path="data-analytics/*" element={<DataAnalytics />} />
-         */}
+        <Route path="data-analytics/*" element={<DataAnalytics />} /> */}
+         
       <Route path="about/*" element={<AboutPage />} />
     </Route>
   )
