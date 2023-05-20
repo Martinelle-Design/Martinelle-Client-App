@@ -15,19 +15,20 @@ import Root from "./root";
 // const DataAnalytics = lazy(
 //   () => import("./dataAnalyticsPage/DataAnalyticsPage")
 // );
-// const AboutPage = lazy(() => import("./aboutPage/AboutPage"));
+const AboutPage = lazy(() => import("./aboutPage/AboutPage"));
 const HomePage = lazy(() => import("./homePage/HomePage"));
 const router = createBrowserRouter(
   createRoutesFromElements(
-      <Route path="/" element={<Root />}>
-        <Route index element={<HomePage />} />
-        <Route path="home/*" element={<HomePage />} />
-        {/* <Route path="dashboard/*" element={<DashboardPage />} />
+    <Route path="/" element={<Root />}>
+      <Route index element={<HomePage />} />
+      <Route path="home/*" element={<HomePage />} />
+      {/* <Route path="dashboard/*" element={<DashboardPage />} />
         <Route path="settings/*" element={<SettingsPage />} />
         <Route path="scheduling/*" element={<SchedulingPage />} />
         <Route path="data-analytics/*" element={<DataAnalytics />} />
-        <Route path="about/*" element={<AboutPage />} /> */}
-      </Route>
+         */}
+      <Route path="about/*" element={<AboutPage />} />
+    </Route>
   )
 );
 const root = ReactDOM.createRoot(
