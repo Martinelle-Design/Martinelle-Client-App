@@ -1,6 +1,5 @@
 @use "sass:math";
 .page-title {
-  margin: 0 3%;
   box-sizing: border-box;
   position: relative;
   font-size: math.div($navbar-height, 6);

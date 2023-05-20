@@ -5,7 +5,7 @@
     height: $medium-navbar-height;
   }
   .#{$namespace}-inner {
-    & > button {
+    & > a {
       @include action-btn-styles(
         $width: math.div($medium-navbar-height, 7) * 8.5,
         $navbar-height: $medium-navbar-height
@@ -34,7 +34,6 @@
 
 @mixin general-navbar-sm {
   $namespace: "general-navbar";
-
   .#{$namespace} {
     height: $small-navbar-height;
     a {
