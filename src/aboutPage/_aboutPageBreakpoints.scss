@@ -1,0 +1,33 @@
+@use "sass:math";
+@mixin scale-to-font-size-about-pg($fontSize: 3rem) {
+  .#{$namespace}-img-banner-text {
+    font-size: $fontSize;
+    // width: 50%;
+    max-width: $fontSize * 10;
+  }
+  .#{$namespace}-text-content {
+    font-size: math.div($fontSize, 2);
+    // margin: 5%;
+    // padding: 5%;
+    // width: 90%;
+    p {
+      font-size: math.div($fontSize, 2);
+    }
+  }
+}
+@mixin about-pg-md {
+  $namespace: "about-pg";
+  @include scale-to-font-size-about-pg(2rem);
+  .#{$namespace}-img-banner {
+    aspect-ratio: 290/ 169;
+  }
+}
+@mixin about-pg-sm {
+  $namespace: "about-pg";
+  @include scale-to-font-size-about-pg(1.5rem);
+  .#{$namespace}-text-content {
+    margin: 2.5em;
+    padding: 2.5em;
+    width: calc(100% - 2.5em * 2);
+  }
+}

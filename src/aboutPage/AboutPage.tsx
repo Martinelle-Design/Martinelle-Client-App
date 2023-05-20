@@ -31,7 +31,7 @@ const AboutPage = () => {
       <div className={`${namespace}-text-content`}>
         {textStatus === "success" &&
           Array.isArray(textResult) &&
-          textResult.map((text) => <p>{text}</p>)}
+          textResult.map((text, idx) => <p key={idx}>{text}</p>)}
       </div>
     </div>
   );
