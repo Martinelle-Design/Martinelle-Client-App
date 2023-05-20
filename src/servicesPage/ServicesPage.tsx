@@ -20,9 +20,9 @@ const servicesData: ServiceRowProps[] = [
       "Shop-In-Shop’s",
       "Sports & Entertainment Venues",
       "Multifamily Developments",
-      "Senior Living / Student Housing",
+      "Senior / Student Living",
       "Experience Adaptations",
-      "Landscape/Gardens Design",
+      "Landscape / Gardens Design",
       "Mixed-Use",
       "Multifamily Residential",
       "Art Galleries",
@@ -38,8 +38,9 @@ const servicesData: ServiceRowProps[] = [
       "Color & Material Selection",
       "Options Selection",
       "Artwork & Accessory",
-      "Services Lighting/Ceiling Design",
-      "Consultation Material & Finish Selections Space",
+      "Services Lighting / Ceiling Design",
+      "Consultation Material",
+      "Finish Selections Space",
       "Planning Sustainable Design",
       "Theme & Concept Development",
       "Custom Cabinetry Design",
@@ -58,7 +59,8 @@ const servicesData: ServiceRowProps[] = [
       "Custom Outdoor Furniture",
       "Custom Baby & Child",
       "Furniture Plans & Detailed Specifications",
-      "DevelopmentFF&E Inventories / Re-Use AnalysisFF&E",
+      "DevelopmentFF&E Inventories",
+      "Re-Use AnalysisFF&E",
     ],
   },
   {
@@ -89,11 +91,13 @@ const ServiceRow = ({
         <div className={`${namespace}-row-img`}>
           <img src={imgUrl} alt={imgDescription} />
         </div>
-        <ul className={`${namespace}-row-items`}>
-          {items.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
+        <div className={`${namespace}-row-items-container`}>
+          <ul className={`${namespace}-row-items`}>
+            {items.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
@@ -103,7 +107,7 @@ const ServicesPage = () => {
     <div className={namespace}>
       <PageTitle text={"Services".toUpperCase()} />
       <div className={`${namespace}-rows`}>
-        {servicesData.map((service, index) => (
+        {servicesData.map((service) => (
           <ServiceRow
             items={service.items}
             title={service.title}

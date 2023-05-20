@@ -1,5 +1,6 @@
 @use "sass:math";
 @mixin scale-to-font-size-about-pg($fontSize: 3rem) {
+  $namespace: "about-pg";
   .#{$namespace}-img-banner-text {
     font-size: $fontSize;
     // width: 50%;
@@ -16,15 +17,15 @@
   }
 }
 @mixin about-pg-md {
-  $namespace: "about-pg";
   @include scale-to-font-size-about-pg(2rem);
+  $namespace: "about-pg";
   .#{$namespace}-img-banner {
     aspect-ratio: 290/ 169;
   }
 }
 @mixin about-pg-sm {
-  $namespace: "about-pg";
   @include scale-to-font-size-about-pg(1.5rem);
+  $namespace: "about-pg";
   .#{$namespace}-text-content {
     margin: 2.5em;
     padding: 2.5em;
