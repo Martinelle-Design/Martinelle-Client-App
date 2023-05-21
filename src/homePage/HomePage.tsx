@@ -1,45 +1,9 @@
-import { ImageProps, ImageSlide } from "./utilities/HomePageCategoriesNav";
 import HomePageImageBanner from "./utilities/HomePageImageBanner";
 import HomePageImageBannerFull from "./utilities/HomePageImgBannerFull";
-import { v4 as uuid } from "uuid";
+import ProjectsClickableBanner from "../utilities/projectsCickableBanner/ProjectsClickableBanner";
 import { Link } from "react-router-dom";
+import ContactActionButton from "../utilities/contactActionBanner/ContactActionBanner";
 const namespace = "home-pg";
-const interiorDesignCategories: (ImageProps & {
-  name: string;
-  id: string;
-  url?: string;
-  children?: JSX.Element | string | JSX.Element[];
-  onClick?: (
-    e:
-      | React.MouseEvent<HTMLButtonElement, MouseEvent>
-      | React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => void;
-})[] = [
-  {
-    id: uuid(),
-    name: "PRIVATE RESIDENTIAL",
-    url: "/services/private-residential",
-    imgUrl: "",
-  },
-  {
-    id: uuid(),
-    name: "COMMERCIAL",
-    url: "/services/commercial",
-    imgUrl: "",
-  },
-  {
-    id: uuid(),
-    name: "FURNITURE MANUFACTURING",
-    url: "/services/furniture-manufacturing",
-    imgUrl: "",
-  },
-  {
-    id: uuid(),
-    name: "HOSPITALITY",
-    url: "/services/hospitality",
-    imgUrl: "",
-  },
-];
 const HomePageBottomBanner = () => {
   return (
     <>
@@ -47,44 +11,8 @@ const HomePageBottomBanner = () => {
         <h3>Browse Interior Projects</h3>
         <Link to="/projects">EXPLORE</Link>
       </div>
-
-      <div className={`${namespace}-bottom-banner`}>
-        {interiorDesignCategories.map((category) => {
-          const el = category.url ? (
-            <Link
-              key={category.id}
-              to={category.url}
-              onClick={category.onClick}
-              className={`${namespace}-bottom-banner-link`}
-            >
-              <ImageSlide
-                name={category.name}
-                imgUrl={category.imgUrl}
-                imgDescription={category.imgDescription}
-                imgPlaceholderUrl={category.imgPlaceholderUrl}
-              />
-            </Link>
-          ) : (
-            <button
-              key={category.id}
-              onClick={category.onClick}
-              className={`${namespace}-bottom-banner-link`}
-            >
-              <ImageSlide
-                name={category.name}
-                imgUrl={category.imgUrl}
-                imgDescription={category.imgDescription}
-                imgPlaceholderUrl={category.imgPlaceholderUrl}
-              />
-            </button>
-          );
-          return el;
-        })}
-      </div>
-      <div className={`${namespace}-bottom-banner-contact-action`}>
-        <h3>CONNECT WITH US</h3>
-        <Link to="/contact">CONTACT</Link>
-      </div>
+      <ProjectsClickableBanner />
+      <ContactActionButton />
     </>
   );
 };

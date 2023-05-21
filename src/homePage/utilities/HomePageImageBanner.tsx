@@ -1,5 +1,5 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { ImageProps } from "./HomePageCategoriesNav";
+import { ImageProps } from "../../utilities/imageSlide/ImageSlide";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import useIntersectionObserver from "../../hooks/use-intersection-observer";

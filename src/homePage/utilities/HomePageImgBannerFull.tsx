@@ -1,4 +1,4 @@
-import { ImageProps } from "./HomePageCategoriesNav";
+import { ImageProps } from "../../utilities/imageSlide/ImageSlide";
 import { HomePageImageBannerContentProps } from "./HomePageImageBanner";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
