@@ -1,4 +1,5 @@
 @mixin scale-to-font-size-services-pg($fontSize: 1rem) {
+   $namespace: "services-pg";
   $margin: $fontSize;
   .#{$namespace}-row {
     margin: $margin 0;

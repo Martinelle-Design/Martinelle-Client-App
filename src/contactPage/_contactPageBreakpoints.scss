@@ -48,18 +48,24 @@
   }
 }
 @mixin contact-pg-lg {
+  $namespace: "contact-pg";
+
   ##{$namespace}-form {
     margin-left: 5%;
     margin-right: 5%;
   }
 }
 @mixin contact-pg-md {
+  $namespace: "contact-pg";
+
   @include scale-to-fonts-contact-page(
     $fontSize: 1rem,
     $navbarHeight: $navbar-height
   );
 }
 @mixin contact-pg-sm {
+  $namespace: "contact-pg";
+
   @include scale-to-fonts-contact-page(
     $fontSize: 0.9rem,
     $navbarHeight: $medium-navbar-height
@@ -80,10 +86,13 @@
   .#{$namespace}-form-submit-btn {
     @include action-btn-styles(
       $width: 100%,
-      $navbar-height: $medium-navbar-height * 1.1
+      $navbar-height: $medium-navbar-height * 1.05
     );
     margin-top: 0.9rem * 3;
   }
 }
 @mixin contact-pg-hover {
+  .#{$namespace}-form-submit-btn {
+    @include action-btn-hover-styles;
+  }
 }
