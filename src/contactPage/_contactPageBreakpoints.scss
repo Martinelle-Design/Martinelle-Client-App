@@ -1,12 +1,89 @@
-@mixin contact-pg-lg{
-
+@use "sass:math";
+@mixin scale-to-fonts-contact-page(
+  $fontSize: 1.1rem,
+  $navbarHeight: $navbar-height
+) {
+  $namespace: "contact-pg";
+  .#{$namespace}-text-section {
+    margin: $fontSize * 3;
+    h2 {
+      font-size: $fontSize;
+      margin-bottom: math.div($fontSize, 2);
+    }
+    p {
+      font-size: math.div($fontSize, 1.1) * 0.95;
+    }
+  }
+  ##{$namespace}-form {
+    padding: $fontSize * 2.4;
+    margin-bottom: $fontSize * 4;
+    h3 {
+      margin-bottom: $fontSize * 2;
+      font-size: $fontSize;
+    }
+    p {
+      font-size: math.div($fontSize, 1.1) * 0.95;
+      margin-bottom: $fontSize * 3;
+    }
+  }
+  .#{$namespace}-form-inner {
+    & > * {
+      margin-bottom: $fontSize * 2.4;
+    }
+  }
+  .#{$namespace}-form-label.MuiFormLabel-root {
+    font-size: math.div($fontSize, 1.1) * 0.95;
+  }
+  .#{$namespace}-form-input {
+    input {
+      font-size: math.div($fontSize, 1.1) * 0.95;
+    }
+    textarea {
+      font-size: math.div($fontSize, 1.1) * 0.95;
+    }
+  }
+  .#{$namespace}-form-submit-btn {
+    @include action-btn-styles($width: 20em, $navbar-height: $navbarHeight);
+    margin-top: $fontSize * 3;
+  }
 }
-@mixin contact-pg-md{
-
+@mixin contact-pg-lg {
+  ##{$namespace}-form {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
-@mixin contact-pg-sm{
-
+@mixin contact-pg-md {
+  @include scale-to-fonts-contact-page(
+    $fontSize: 1rem,
+    $navbarHeight: $navbar-height
+  );
 }
-@mixin contact-pg-hover{
+@mixin contact-pg-sm {
+  @include scale-to-fonts-contact-page(
+    $fontSize: 0.9rem,
+    $navbarHeight: $medium-navbar-height
+  );
 
+  .#{$namespace}-form-row {
+    & > * {
+      width: 100%;
+      &:first-child {
+        margin-right: 0%;
+        margin-bottom: 0.9rem * 2.4;
+      }
+      &:last-child {
+        margin-left: 0%;
+      }
+    }
+  }
+  .#{$namespace}-form-submit-btn {
+    @include action-btn-styles(
+      $width: 100%,
+      $navbar-height: $medium-navbar-height * 1.1
+    );
+    margin-top: 0.9rem * 3;
+  }
+}
+@mixin contact-pg-hover {
 }
