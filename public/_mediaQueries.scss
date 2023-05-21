@@ -10,6 +10,7 @@
 @media (max-width: 992px) {
   @include home-pg-lg;
   @include services-pg-lg;
+  @include contact-pg-lg;
   // @include project-pg-lg;
 }
 
@@ -34,4 +35,5 @@
 @media (any-hover: hover) {
   @include utilities-hover;
   @include home-pg-hover;
+  @include contact-pg-hover;
 }
