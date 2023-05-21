@@ -38,17 +38,17 @@ const Drawer = ({
     exiting: { visibility: "visible", opacity: 1 },
     exited: { visibility: "hidden", opacity: 0 },
   };
-  const buttonContainerStyles: React.CSSProperties = {
+  const buttonContainerStyles: { [key: string]: string } = {
     position: "absolute",
-    cursor: "pointer",
     width: "100%",
     height: "100%",
     border: "none",
     top: "0",
     right: "0",
     zIndex: "1",
-    backgroundColor: "rgba(0,0,0,0.5)",
+    background: "rgba(0,0,0,0.5)",
     transition: `opacity ${animationTime}ms cubic- bezier(0.4, 0, 0.2, 1) 0ms`,
+    WebkitTapHighlightColor: "unset",
   };
   const buttonContainerTransitionStyles: {
     [key: string]: React.CSSProperties;
@@ -150,14 +150,14 @@ const Drawer = ({
               position: "relative",
             }}
           >
-            <button
+            <div
               style={{
                 ...buttonContainerStyles,
                 ...buttonContainerTransitionStyles[state],
               }}
               onClick={onClose}
               aria-label="close-drawer"
-            ></button>
+            ></div>
             <div
               ref={setRef}
               style={{

@@ -123,6 +123,7 @@ $namespace: "general-navbar";
       font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       box-sizing: border-box;
       min-height: $navbar-height * 0.38;
+      -webkit-tap-highlight-color: "unset",
     }
   }
 }

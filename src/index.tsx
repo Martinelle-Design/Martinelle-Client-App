@@ -37,7 +37,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<LoadingIcon entireViewPort />}>
+    <Suspense
+      fallback={<LoadingIcon entireViewPort strokeColor="#37673F" />}
+    >
       <RouterProvider router={router} />
     </Suspense>
   </React.StrictMode>
