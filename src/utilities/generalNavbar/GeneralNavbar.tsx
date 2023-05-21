@@ -1,4 +1,5 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "@mui/material";
+import { faSearch, faBars, faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useRef, useEffect, RefObject } from "react";
 import { createPortal } from "react-dom";
@@ -6,9 +7,80 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../utilities/logo.svg";
 import useDebouncedTextInput from "../../hooks/use-debounced-text-input";
 import useWindowWidth from "../../hooks/use-window-width";
-// import PopUpModal from "../popUpModal/PopUpModal";
 import useClickOutside from "../../hooks/use-click-outside";
+import Drawer from "../drawer/Drawer";
+import { pages } from "../secondaryNavbar/SecondaryNavbar";
 const namespace = "general-navbar";
+const NavLinks = ({
+  toggleDrawer,
+}: {
+  toggleDrawer?: (
+    open: boolean
+  ) => (event: React.KeyboardEvent | React.MouseEvent) => void;
+}) => {
+  return (
+    <div id={`${namespace}-links`}>
+      {pages.map((l) => (
+        <Link
+          key={l.name}
+          to={l.url}
+          onClick={(e) => {
+            //improve stability of link out
+            if (toggleDrawer) toggleDrawer(false)(e);
+          }}
+        >
+          {l.name}
+          <div className="link-animation-container"></div>
+          <svg viewBox="0 0 13 20">
+            <polyline points="0.5 19.5 3 19.5 12.5 10 3 0.5" />
+          </svg>
+        </Link>
+      ))}
+    </div>
+  );
+};
+const NavDrawer = () => {
+  const [open, setOpen] = useState(false);
+  const toggleDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+      setOpen(open);
+    };
+  return (
+    <>
+      <Button
+        variant="text"
+        id={`${namespace}-open-drawer-button`}
+        aria-label="open-drawer"
+        onClick={toggleDrawer(true)}
+      >
+        <FontAwesomeIcon icon={faBars} />
+      </Button>
+      <Drawer
+        id={`${namespace}-drawer`}
+        anchor="right"
+        open={open}
+        onClose={(e) => toggleDrawer(false)(e)}
+      >
+        <Button
+          variant="text"
+          id={`${namespace}-close-drawer-button`}
+          aria-label="close-drawer"
+          onClick={toggleDrawer(false)}
+        >
+          <FontAwesomeIcon icon={faClose} />
+        </Button>
+        <NavLinks toggleDrawer={toggleDrawer} />
+      </Drawer>
+    </>
+  );
+};
 const searchFunc = (str: string) => {};
 const SearchBar = ({ navbarRef }: { navbarRef: HTMLElement | null }) => {
   const { textValue, onChange } = useDebouncedTextInput({
@@ -80,8 +152,7 @@ const SearchBar = ({ navbarRef }: { navbarRef: HTMLElement | null }) => {
   );
 };
 
-const GeneralNavBar = () => {
-  // const [contactUs, setContactUs] = useState(false);
+const GeneralNavBar = ({ toggleBtn }: { toggleBtn?: boolean }) => {
   const navbarRef = useRef<null | HTMLElement>(null);
   const [mounted, setMounted] = useState(false);
   //here to set ref
@@ -90,11 +161,6 @@ const GeneralNavBar = () => {
   }, [mounted]);
   return (
     <nav ref={navbarRef} className={`${namespace}`}>
-      {/* {contactUs && (
-        <PopUpModal onClose={() => setContactUs(false)}>
-          <h3>Contact Us</h3>
-        </PopUpModal>
-      )} */}
       <Link to="/" aria-label="home">
         {<Logo height={"100%"} />}
       </Link>
@@ -103,11 +169,7 @@ const GeneralNavBar = () => {
         <Link to="/contact" aria-label="contact">
           {"Contact".toUpperCase()}
         </Link>
-        {/* <button
-          //onClick={() => setContactUs(true)}
-        >
-          {"Contact".toUpperCase()}
-        </button> */}
+        {toggleBtn && <NavDrawer />}
       </div>
     </nav>
   );
