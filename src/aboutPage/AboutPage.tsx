@@ -4,7 +4,6 @@ import text from "./aboutPg.txt";
 import ContactActionButton from "../utilities/contactActionBanner/ContactActionBanner";
 import ImageSlide, { ImageProps } from "../utilities/imageSlide/ImageSlide";
 import { v4 as uuid } from "uuid";
-import ProjectsClickableBanner from "../utilities/projectsCickableBanner/ProjectsClickableBanner";
 const fetchTextFile = () =>
   fetch(text)
     .then((res) => res.text())

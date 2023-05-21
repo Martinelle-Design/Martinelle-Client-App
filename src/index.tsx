@@ -19,6 +19,7 @@ const AboutPage = lazy(() => import("./aboutPage/AboutPage"));
 const HomePage = lazy(() => import("./homePage/HomePage"));
 const ServicesPage = lazy(() => import("./servicesPage/ServicesPage"));
 const ProjectsPage = lazy(() => import("./projectsPage/ProjectsPage"));
+const ContactPage = lazy(() => import("./contactPage/ContactPage"));
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
@@ -26,11 +27,7 @@ const router = createBrowserRouter(
       <Route path="home/*" element={<HomePage />} />
       <Route path="services/*" element={<ServicesPage />} />
       <Route path="projects/*" element={<ProjectsPage />} />
-      {/* <Route path="dashboard/*" element={<DashboardPage />} />
-        <Route path="settings/*" element={<SettingsPage />} />
-        <Route path="scheduling/*" element={<SchedulingPage />} />
-        <Route path="data-analytics/*" element={<DataAnalytics />} /> */}
-
+      <Route path="contact/*" element={<ContactPage />} />
       <Route path="about/*" element={<AboutPage />} />
     </Route>
   )

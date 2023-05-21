@@ -3,6 +3,7 @@
 @import "../src/aboutPage/aboutPageBreakpoints";
 @import "../src/servicesPage/servicesPageBreakpoints";
 @import "../src/projectsPage/projectPageBreakpoints";
+@import "../src/contactPage/contactPageBreakpoints";
 @media (min-width: 992px) {
 }
 
@@ -18,6 +19,7 @@
   @include about-pg-md;
   @include services-pg-md;
   @include project-pg-md;
+  @include contact-pg-md;
 }
 
 @media (max-width: 575px) {
@@ -26,6 +28,7 @@
   @include about-pg-sm;
   @include services-pg-sm;
   @include project-pg-sm;
+  @include contact-pg-sm;
 }
 
 @media (any-hover: hover) {
