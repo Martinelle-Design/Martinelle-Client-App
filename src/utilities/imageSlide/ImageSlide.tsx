@@ -12,7 +12,7 @@ export const ImageSlide = ({
   imgDescription,
   imgPlaceholderUrl,
 }: {
-  name: string;
+  name?: string;
 } & ImageProps) => (
   <div className={`${namespace}-img-slide`}>
     <div className={`${namespace}-img-container`}>
@@ -24,7 +24,7 @@ export const ImageSlide = ({
         effect="blur"
       />
     </div>
-    <span className={`${namespace}-img-title`}>{name}</span>
+    {name && <span className={`${namespace}-img-title`}>{name}</span>}
   </div>
 );
 

@@ -66,3 +66,23 @@ $namespace: "about-pg";
     color: $fontColor;
   }
 }
+.#{$namespace}-img-presentation-banner {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  padding: 0 4em;
+}
+.#{$namespace}-img-presentation-container {
+  text-decoration: none;
+  color: $headlineFontColor;
+  width: 100%;
+  margin: 0 2%;
+    padding: 0;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}

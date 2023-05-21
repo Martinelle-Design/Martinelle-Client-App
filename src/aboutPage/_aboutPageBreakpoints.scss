@@ -15,6 +15,19 @@
       font-size: math.div($fontSize, 2);
     }
   }
+  .#{$namespace}-img-presentation-banner {
+    font-size: math.div($fontSize, 2);
+    margin-bottom: math.div($fontSize, 3) * 3.5;
+  }
+  .#{$namespace}-img-presentation-container {
+    margin: 0 2%;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }
 @mixin about-pg-md {
   @include scale-to-font-size-about-pg(2rem);
@@ -22,6 +35,32 @@
   .#{$namespace}-img-banner {
     aspect-ratio: 290/ 169;
   }
+  .#{$namespace}-img-presentation-banner {
+    flex-wrap: wrap;
+    //margin-bottom: 3.5em;
+  }
+  $margin-spacing: 3%;
+  .#{$namespace}-img-presentation-container {
+    width: calc((100% - #{$margin-spacing}) / 2);
+    &:nth-child(odd) {
+      margin: 0;
+      margin-bottom: $margin-spacing;
+      margin-right: $margin-spacing;
+    }
+    &:nth-child(even) {
+      margin: 0;
+      margin-bottom: $margin-spacing;
+    }
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+    .#{$namespace}-img-container {
+      aspect-ratio: 1;
+    }
+  }
+  //   .#{$namespace}-img-presentation-banner {
+  //   flex-wrap: wrap;
+  // }
 }
 @mixin about-pg-sm {
   @include scale-to-font-size-about-pg(1.5rem);
@@ -30,5 +69,8 @@
     margin: 2.5em;
     padding: 2.5em;
     width: calc(100% - 2.5em * 2);
+  }
+  .#{$namespace}-img-presentation-banner {
+    padding: 0 2em;
   }
 }
