@@ -37,7 +37,10 @@ const ProjectSubPageImagePopUpModal = ({
     };
   }, []);
   if (!recentCoordinates.current) return <></>;
-  const { x1, x2, y1, y2, imgHeight, imgWidth } = recentCoordinates.current;
+  const {
+    //x1, x2, y1, y2,
+    
+    imgHeight, imgWidth } = recentCoordinates.current;
   const imgStyles: { [key: string]: string } = {
     objectFit: "contain",
     aspectRatio: (imgWidth / imgHeight).toString(),
