@@ -1,0 +1,25 @@
+@use "../../../public/variables" as v;
+$namespace: "project-subpage-pg";
+.#{$namespace} {
+  padding: 0 5%;
+}
+$spacing: 3rem;
+.#{$namespace}-media-container {
+  padding: $spacing 0;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: $spacing $spacing;
+
+}
+.#{$namespace}-media-container-img {
+  @include v.remove-btn-default;
+  font-size: $spacing;
+  background-color: black;
+  aspect-ratio: 1;
+  //   height: 100%;
+  // width: 100%;
+}

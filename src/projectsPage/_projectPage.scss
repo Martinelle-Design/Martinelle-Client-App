@@ -1,3 +1,5 @@
+@use "./subPages/projectSubPage" as subPage;
+@import "./subPages/projectSubPage";
 $namespace: "project-page";
 .#{$namespace} {
   padding: 0 5%;
@@ -34,5 +36,15 @@ $namespace: "project-page";
     color: $fontColor;
     font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     line-height: 155%;
+  }
+}
+.hospitality-pg {
+  .#{subPage.$namespace}-media-container {
+    grid-template-columns: 1fr 1fr 1.5fr;
+  }
+  .#{subPage.$namespace}-media-container-img {
+    &:nth-child(3n) {
+      aspect-ratio: 1.5/1;
+    }
   }
 }
