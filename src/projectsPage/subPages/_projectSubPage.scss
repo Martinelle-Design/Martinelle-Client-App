@@ -20,6 +20,11 @@ $spacing: 3rem;
   font-size: $spacing;
   background-color: black;
   aspect-ratio: 1;
+  .lazy-load-image-background {
+    width: 100%;
+    height: 100%;
+    @include v.img-fill;
+  }
 }
 .#{$namespace}-media-container-img-modal {
   position: absolute;
@@ -75,7 +80,7 @@ $spacing: 3rem;
       fill: v.$white;
     }
     &:disabled {
-      cursor:default;
+      cursor: default;
       color: darken(v.$white, 40%);
       path {
         fill: darken(v.$white, 40%);

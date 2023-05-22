@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import PageTitle from "../utilities/pageTitle/PageTitle";
 const namespace = "services-pg";
 type ServiceRowProps = {
@@ -89,7 +90,12 @@ const ServiceRow = ({
       <h2>{title}</h2>
       <div className={`${namespace}-row-container`}>
         <div className={`${namespace}-row-img`}>
-          <img src={imgUrl} alt={imgDescription} />
+          <LazyLoadImage
+            src={imgUrl}
+            alt={imgDescription}
+            placeholderSrc={imgPlaceholderUrl}
+            effect="blur"
+          />
         </div>
         <div className={`${namespace}-row-items-container`}>
           <ul className={`${namespace}-row-items`}>

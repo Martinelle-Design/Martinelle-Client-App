@@ -4,6 +4,7 @@ import text from "./aboutPg.txt";
 import ContactActionButton from "../utilities/contactActionBanner/ContactActionBanner";
 import ImageSlide, { ImageProps } from "../utilities/imageSlide/ImageSlide";
 import { v4 as uuid } from "uuid";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const fetchTextFile = () =>
   fetch(text)
     .then((res) => res.text())
@@ -42,7 +43,7 @@ const AboutPage = () => {
     <div className={namespace}>
       <div className={`${namespace}-img-banner`}>
         <div className={`${namespace}-img-banner-img`}>
-          <img src="" alt="about" />
+          <LazyLoadImage src={""} alt={"about-banner"} effect="blur" />
         </div>
         <div className={`${namespace}-img-banner-text`}>
           {"About Martinelle Design".toUpperCase()}

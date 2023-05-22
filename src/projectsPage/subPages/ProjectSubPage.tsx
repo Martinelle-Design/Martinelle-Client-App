@@ -37,15 +37,22 @@ const ProjectSubPageImagePopUpModal = ({
     };
   }, []);
   if (!recentCoordinates.current) return <></>;
-  const imgStyles: { [key: string]: string } = {};
   const { x1, x2, y1, y2, imgHeight, imgWidth } = recentCoordinates.current;
+  const imgStyles: { [key: string]: string } = {
+    objectFit: "contain",
+    aspectRatio: (imgWidth / imgHeight).toString(),
+    pointerEvents: "auto",
+    objectPosition: "center",
+  };
   const isVertical = imgHeight > imgWidth;
   if (isVertical) {
     imgStyles.height = `${windowHeight * 0.8}px`;
+    imgStyles.maxWidth = windowWidth * 0.95 + "px";
     imgStyles.width = "auto";
   } else {
     imgStyles.height = "auto";
-    imgStyles.width = `${windowWidth * 0.8}px`;
+    imgStyles.maxHeight = windowHeight * 0.95 + "px";
+    imgStyles.maxWidth = `${windowWidth * 0.8}px`;
   }
   return (
     <div className={`${namespace}-media-container-img-modal`}>
@@ -103,6 +110,42 @@ const ProjectSubPageImagePopUpModal = ({
                     }}
                   />
                   <LazyLoadImage
+                    onClick={(e) => {
+                      const clickCoordinates = { x: e.clientX, y: e.clientY };
+                      const target = e.currentTarget;
+                      const { x, y, width, height } =
+                        target.getBoundingClientRect();
+                      const imgAspectRatio = width / height;
+                      const realAspectRatio = imgWidth / imgHeight;
+                      const clickRelativeToImg = {
+                        x: clickCoordinates.x,
+                        y: clickCoordinates.y, 
+                      };
+                      const centerX = x + width / 2;
+                      const centerY = y + height / 2;
+                      const isBoundedVertically =
+                        imgAspectRatio > realAspectRatio;
+                      const adjustedWidth = isBoundedVertically
+                        ? realAspectRatio * height
+                        : width;
+                      const adjustedHeight = isBoundedVertically
+                        ? height
+                        : width / realAspectRatio;
+                      const newBoundingBox = {
+                        x1: centerX - adjustedWidth / 2,
+                        x2: centerX + adjustedWidth / 2,
+                        y1: centerY - adjustedHeight / 2,
+                        y2: centerY + adjustedHeight / 2,
+                      };
+                      const isClickInsideBox =
+                        clickRelativeToImg.x >= newBoundingBox.x1 &&
+                        clickRelativeToImg.x <= newBoundingBox.x2 &&
+                        clickRelativeToImg.y >= newBoundingBox.y1 &&
+                        clickRelativeToImg.y <= newBoundingBox.y2;
+                      if (isClickInsideBox) return;
+                      setOpen(false);
+                      recentCoordinates.current = null;
+                    }}
                     style={imgStyles}
                     src={img.imgUrl}
                     alt={img.imgDescription ? img.imgDescription : ""}
@@ -122,24 +165,14 @@ const ProjectSubPageImagePopUpModal = ({
   );
 };
 const ProjectSubPageImage = ({ img }: { img: ImageProps }) => {
-  //const [open, setOpen] = useState(false);
-  // const recentCoordinates = useRef<RecentCoordinates | null>(null);
-  const [open, setOpen] = useState(true);
-  const recentCoordinates = useRef<RecentCoordinates | null>({
-    x1: 52.870323181152344,
-    y1: 164.9082489013672,
-    x2: 405.2546920776367,
-    y2: 517.2926177978516,
-    imgHeight: 123,
-    imgWidth: 100,
-  });
+  const [open, setOpen] = useState(false);
+  const recentCoordinates = useRef<RecentCoordinates | null>(null);
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.currentTarget;
     const { x: x1, y: y1, width, height } = target.getBoundingClientRect();
     const x2 = x1 + width;
     const y2 = y1 + height;
     const img = target.querySelector("img");
-
     if (!img) return;
     const { naturalHeight: imgHeight, naturalWidth: imgWidth } = img;
     recentCoordinates.current = {
@@ -150,8 +183,6 @@ const ProjectSubPageImage = ({ img }: { img: ImageProps }) => {
       imgHeight,
       imgWidth,
     };
-    console.log(recentCoordinates.current);
-
     //triggers a re-render after grabbing button coorindates
     setOpen(true);
   };

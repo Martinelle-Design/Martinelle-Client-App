@@ -25,4 +25,15 @@
       transform: scale(1.05) translateY(-0.4em);
     }
   }
+
+  .#{$namespace}-media-container-img-modal-buttons {
+    button {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+      &:hover:disabled {
+        background-color: transparent;
+      }
+    }
+  }
 }
