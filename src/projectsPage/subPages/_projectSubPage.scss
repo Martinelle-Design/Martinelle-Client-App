@@ -27,7 +27,7 @@ $spacing: 3rem;
   }
 }
 .#{$namespace}-media-container-img-modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -59,11 +59,11 @@ $spacing: 3rem;
   position: absolute;
   bottom: 0.8rem;
   left: calc(50% - #{$height}* 3 / 2);
-  z-index: 2;
   width: $height * 3;
   border-radius: $height * 3;
   height: $height;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
   button {
     @include v.remove-btn-default;
     color: v.$white;
