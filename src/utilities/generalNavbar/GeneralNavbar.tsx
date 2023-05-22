@@ -149,19 +149,19 @@ const NavDrawer = () => {
   );
 };
 const GeneralNavBar = ({ toggleBtn }: { toggleBtn?: boolean }) => {
-  const navbarRef = useRef<null | HTMLElement>(null);
+  const [navbarRef, setNavbarRef] = useState<null | HTMLElement>(null);
   const [mounted, setMounted] = useState(false);
   //here to set ref
   useEffect(() => {
     if (!mounted) setMounted(true);
   }, [mounted]);
   return (
-    <nav ref={navbarRef} className={`${namespace}`}>
+    <nav ref={(e) => setNavbarRef(e)} className={`${namespace}`}>
       <Link to="/" aria-label="home">
         {<Logo height={"100%"} />}
       </Link>
       <div className={`${namespace}-inner`}>
-        <SearchBar navbarRef={navbarRef.current} />
+        <SearchBar navbarRef={navbarRef} />
         <Link to="/contact" aria-label="contact">
           {"Contact".toUpperCase()}
         </Link>

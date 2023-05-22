@@ -4,7 +4,7 @@ import GeneralNavBar from "./utilities/generalNavbar/GeneralNavbar";
 import { ScrollRestoration, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Footer from "./utilities/footer/Footer";
-const Root = () => {
+const Navbar = () => {
   const location = useLocation();
   const secondaryNavbarPageObj = {
     "/": true,
@@ -13,10 +13,19 @@ const Root = () => {
   const isSecondaryNavbarVisible = location.pathname in secondaryNavbarPageObj;
   return (
     <>
+      <GeneralNavBar
+      toggleBtn={!isSecondaryNavbarVisible}
+      />
+      {isSecondaryNavbarVisible && <SecondaryNavbar />}
+    </>
+  );
+};
+const Root = () => {
+  return (
+    <>
       <ScrollRestoration />
-      <GeneralNavBar toggleBtn={!isSecondaryNavbarVisible} />
+      <Navbar />
       <div id={"general-app-container"}>
-        {isSecondaryNavbarVisible && <SecondaryNavbar />}
         <Outlet />
       </div>
       <Footer />
