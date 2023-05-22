@@ -13,7 +13,7 @@ const PopUpModal = ({
     return () => {
       document.body.style.overflow = "";
     };
-  }, []);
+  }, []); 
   return createPortal(
     <div className="pop-up-modal">
       <button aria-label="close-pop-up" onClick={onClose}></button>
