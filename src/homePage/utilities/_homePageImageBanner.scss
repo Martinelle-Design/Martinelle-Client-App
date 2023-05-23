@@ -124,6 +124,7 @@ $namespace: "home-pg-img-banner-full";
   background-color: rgba(255, 255, 255, 0.35);
   overflow: hidden;
   h3 {
+    text-align: center;
     margin: 0;
     width: 193%;
     transition: transform $animation-speed ease-out,
