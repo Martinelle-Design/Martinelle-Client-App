@@ -6,6 +6,7 @@ import { useState } from "react";
 import { validate as validateEmail } from "email-validator";
 import { validatePhoneNumber } from "../utilities/helpers/validatePhone";
 import axios from "axios";
+import LoadingIcon from "../utilities/loadingIcon/LoadingIcon";
 export type ContactMeInputProps = {
   sender: {
     email: string;
@@ -115,7 +116,7 @@ const ContactPageTextSection = ({
 };
 
 const ContactPage = () => {
-  const { status, result, callFunction } = useLoadingState({
+  const { status, callFunction } = useLoadingState({
     asyncFunc: submitFormFunc,
   });
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -158,6 +159,28 @@ const ContactPage = () => {
         </>
       </ContactPageTextSection>
       <form id={`${namespace}-form`} onSubmit={onSubmit}>
+        {status === "loading" && (
+          <div
+            style={{
+              position: "absolute",
+              top:0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              zIndex: 2,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#ebebeb",
+            }}
+          >
+            <LoadingIcon
+              strokeColor="#37673F"
+              backgroundColor="#ebebeb"
+              width={"35%"}
+            />
+          </div>
+        )}
         <h3>GENERAL INQUIRIES </h3>
         <p>
           Thank you for your interest in Martinelle Design. It is our pleasure
