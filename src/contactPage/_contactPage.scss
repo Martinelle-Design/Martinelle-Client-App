@@ -1,0 +1,114 @@
+$namespace: "contact-pg";
+.#{$namespace} {
+  padding: 0 5%;
+}
+.#{$namespace}-text-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20%;
+  margin: 3rem;
+  h2 {
+    text-align: center;
+    color: $green;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  p {
+    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 160%;
+    text-align: center;
+    font-size: 0.95rem;
+    color: $fontColor;
+    font-weight: 400;
+    b {
+      font-weight: 600;
+    }
+  }
+}
+##{$namespace}-form {
+  background-color: $lightest-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3.5rem;
+  margin-left:  15%;
+  margin-right: 15%;
+  margin-bottom: 4rem;
+  box-sizing: border-box;
+  h3 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: $green;
+    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 0.95rem;
+    line-height: 176%;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 3.5rem;
+    color: $fontColor;
+    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+.#{$namespace}-form-inner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  & > * {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+.#{$namespace}-form-row {
+  & > * {
+    width: 48%;
+    &:first-child {
+      margin-right: 2%;
+    }
+    &:last-child {
+      margin-left: 2%;
+    }
+  }
+}
+.#{$namespace}-form-label.MuiFormLabel-root {
+  color: $headlineFontColor !important;
+  font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  margin-bottom: 0.5em;
+  font-size: 0.95rem;
+}
+.#{$namespace}-form-input {
+  background-color: $white;
+  & > * {
+    border-radius: 0 !important;
+  }
+  input {
+    padding: 0.8em;
+    font-family: "Noto Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.95rem;
+  }
+  textarea {
+    font-family: "Noto Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 10em;
+    font-size: 0.95rem;
+  }
+}
+.#{$namespace}-form-submit-btn {
+  @include action-btn-styles($width: 20em, $navbar-height: $navbar-height);
+  margin-top: 3rem;
+}

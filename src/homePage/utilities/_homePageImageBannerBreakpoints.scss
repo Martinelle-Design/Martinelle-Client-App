@@ -1,5 +1,5 @@
 @use "sass:math";
-@mixin scale-to-font-size($font-size: 1.8rem, $navbar-height: $navbar-height) {
+@mixin scale-to-font-size-home-banner-full($font-size: 1.8rem, $navbar-height: $navbar-height) {
   $namespace: "home-pg-img-banner-full";
   .#{$namespace}-img-container {
     min-height: $font-size * 13.5;
@@ -38,13 +38,13 @@
   }
 }
 @mixin home-pg-img-banner-lg {
-  @include scale-to-font-size(
+  @include scale-to-font-size-home-banner-full(
     $font-size: 1.5rem,
     $navbar-height: $medium-navbar-height
   );
 }
 @mixin home-pg-img-banner-md {
-  @include scale-to-font-size(
+  @include scale-to-font-size-home-banner-full(
     $font-size: 1.3rem,
     $navbar-height: $medium-navbar-height
   );
@@ -71,7 +71,7 @@
   }
 }
 @mixin home-pg-img-banner-sm {
-  @include scale-to-font-size(
+  @include scale-to-font-size-home-banner-full(
     $font-size: 1.2rem,
     $navbar-height: $small-navbar-height
   );

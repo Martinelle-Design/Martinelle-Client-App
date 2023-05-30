@@ -35,29 +35,7 @@ $namespace: "home-pg";
     $fontSize: 2em
   );
 }
-.#{$namespace}-img-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @include img-fill;
-}
-.#{$namespace}-img-container {
-  margin: 0;
-  padding: 0;
-  & > span {
-    width: 100%;
-    height: 100%;
-  }
-}
-.#{$namespace}-img-title {
-  text-align: center;
-  margin: 0;
-  margin: 1em 0;
-  font-weight: 600;
-  font-family: "Lato", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  width: 100%;
-  font-size: 0.9em;
-}
+
 
 .#{$namespace}-banner-containers {
   display: flex;
@@ -102,56 +80,4 @@ $namespace: "home-pg";
     margin-bottom: 3.5em;
   }
 }
-.#{$namespace}-bottom-banner {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 3.5rem;
-}
-.#{$namespace}-bottom-banner-link {
-  text-decoration: none;
-  color: $headlineFontColor;
-  width: 100%;
-  margin: 0 2%;
-  padding: 0;
-  cursor: pointer;
-  &:first-child {
-    margin-left: 0;
-  }
-  &:last-child {
-    margin-right: 0;
-  }
-  .#{$namespace}-img-slide {
-    width: 100%;
-    height: 100%;
-  }
-  .#{$namespace}-img-title {
-    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 0.9rem;
-  }
-  .#{$namespace}-img-container {
-    width: 100%;
-    aspect-ratio: 12/16;
-    background-color: $gray;
-  }
-}
-.#{$namespace}-bottom-banner-contact-action {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  justify-content: center;
-  box-sizing: border-box;
-  margin-bottom: 5.5rem;
-  h3 {
-    font-size: 1.1rem;
-    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    color: $headlineFontColor;
-    font-weight: 600;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 1.5rem;
-  }
-  a {
-    @include action-btn-styles($width: 8.5rem);
-  }
-}
+

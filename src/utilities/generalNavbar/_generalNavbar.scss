@@ -1,3 +1,4 @@
+@use "sass:math";
 $namespace: "general-navbar";
 .#{$namespace} {
   //position: fixed;
@@ -11,7 +12,7 @@ $namespace: "general-navbar";
   height: $navbar-height;
   z-index: 10;
   background-color: $white;
-  border-bottom: 1px solid $light-gray;
+  //border-bottom: 1px solid $light-gray;
   width: 100%;
   box-sizing: border-box;
   padding: 0 5%;
@@ -77,3 +78,53 @@ $namespace: "general-navbar";
     font-size: 0.73em;
   }
 }
+##{$namespace}-open-drawer-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $gray;
+  height: $navbar-height * 0.38;
+  font-size: 1.5rem;
+  aspect-ratio: 1/1;
+  min-width: unset;
+  margin-left: 0.5rem;
+}
+##{$namespace}-close-drawer-button {
+  @extend ##{$namespace}-open-drawer-button;
+  font-size: 1.5rem;
+  height: 2.2em;
+  //width: auto;
+  width: 2.2em;
+}
+##{$namespace}-drawer {
+  .MuiPaper-root {
+    align-items: end;
+    align-items: flex-end;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.75);
+  }
+  ##{$namespace}-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: unset;
+    align-items: center;
+    flex-grow: unset;
+    height: auto;
+    box-sizing: border-box;
+    min-width: 200px;
+    a,
+    button {
+      font-size: math.div($navbar-height, 7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      color: $fontColor;
+      font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      box-sizing: border-box;
+      min-height: $navbar-height * 0.38;
+      -webkit-tap-highlight-color: "unset",
+    }
+  }
+}
+

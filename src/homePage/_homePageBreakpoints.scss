@@ -1,6 +1,10 @@
 @use "sass:math";
 @import "./utilities/homePageImageBannerBreakpoints";
-@mixin scale-fonts-down($font-size: 2rem, $navbar-height: $navbar-height) {
+@mixin scale-fonts-down-home-pg(
+  $font-size: 2rem,
+  $navbar-height: $navbar-height
+) {
+  $namespace: "home-pg";
   .#{$namespace}-bottom-banner-action {
     h3 {
       font-size: $font-size;
@@ -18,34 +22,13 @@
       margin-bottom: 3.5em;
     }
   }
-  .#{$namespace}-bottom-banner {
-    margin-bottom: math.div($font-size, 2) * 3.5;
-  }
-  .#{$namespace}-bottom-banner-link {
-    .#{$namespace}-img-title {
-      font-size: math.div($font-size, 2) * 0.9;
-    }
-  }
-  .#{$namespace}-bottom-banner-contact-action {
-    margin-bottom: math.div($font-size, 2) * 5.5;
-    h3 {
-      font-size: math.div($font-size, 2) * 1.1;
-      margin-bottom: math.div($font-size, 2) * 1.5;
-    }
-    a {
-      @include action-btn-styles(
-        $width: math.div($navbar-height, 7) * 8.5,
-        $navbar-height: $navbar-height
-      );
-    }
-  }
 }
 @mixin home-pg-lg {
-  @include home-pg-img-banner-lg;
+  // @include home-pg-img-banner-lg;
 }
 @mixin home-pg-md {
   @include home-pg-img-banner-md;
-  @include scale-fonts-down(
+  @include scale-fonts-down-home-pg(
     $font-size: 1.6rem,
     $navbar-height: $medium-navbar-height
   );
@@ -60,32 +43,10 @@
       $fontSize: 1.2em
     );
   }
-  .#{$namespace}-bottom-banner {
-    flex-wrap: wrap;
-    //margin-bottom: 3.5em;
-  }
-  $margin-spacing: 3%;
-  .#{$namespace}-bottom-banner-link {
-    width: calc((100% - #{$margin-spacing}) / 2);
-    &:nth-child(odd) {
-      margin: 0;
-      margin-bottom: $margin-spacing;
-      margin-right: $margin-spacing;
-    }
-    &:nth-child(even) {
-      margin: 0;
-      margin-bottom: $margin-spacing;
-    }
-    &:nth-last-child(-n + 2) {
-      margin-bottom: 0;
-    }
-    .#{$namespace}-img-container {
-      aspect-ratio: 1;
-    }
-  }
 }
 @mixin home-pg-sm {
-  @include scale-fonts-down(
+  @include home-pg-img-banner-sm;
+  @include scale-fonts-down-home-pg(
     $font-size: 1.4rem,
     $navbar-height: $small-navbar-height
   );
@@ -100,15 +61,6 @@
       $fontSize: 0.8em
     );
   }
-  // .#{$namespace}-img-container {
-  //   width: 10em;
-  //   height: 5.625em;
-  // }
-  .#{$namespace}-bottom-banner {
-    flex-wrap: wrap;
-    // margin-bottom: 1em;
-  }
-  @include home-pg-img-banner-sm;
 }
 @mixin home-pg-hover {
   @include home-pg-img-banner-hover;
@@ -117,16 +69,8 @@
     a {
       @include action-btn-hover-styles;
     }
+
   }
-  .#{$namespace}-bottom-banner-link {
-    transition: transform 0.3s ease-out;
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
-  .#{$namespace}-bottom-banner-contact-action {
-    a {
-      @include action-btn-hover-styles;
-    }
-  }
+  
 }
+

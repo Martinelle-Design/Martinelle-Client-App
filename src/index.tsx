@@ -17,16 +17,17 @@ import Root from "./root";
 // );
 const AboutPage = lazy(() => import("./aboutPage/AboutPage"));
 const HomePage = lazy(() => import("./homePage/HomePage"));
+const ServicesPage = lazy(() => import("./servicesPage/ServicesPage"));
+const ProjectsPage = lazy(() => import("./projectsPage/ProjectsPage"));
+const ContactPage = lazy(() => import("./contactPage/ContactPage"));
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route index element={<HomePage />} />
       <Route path="home/*" element={<HomePage />} />
-      {/* <Route path="dashboard/*" element={<DashboardPage />} />
-        <Route path="settings/*" element={<SettingsPage />} />
-        <Route path="scheduling/*" element={<SchedulingPage />} />
-        <Route path="data-analytics/*" element={<DataAnalytics />} />
-         */}
+      <Route path="services/*" element={<ServicesPage />} />
+      <Route path="projects/*" element={<ProjectsPage />} />
+      <Route path="contact/*" element={<ContactPage />} />
       <Route path="about/*" element={<AboutPage />} />
     </Route>
   )
@@ -36,7 +37,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<LoadingIcon entireViewPort />}>
+    <Suspense
+      fallback={
+        <LoadingIcon
+          entireViewPort
+          strokeColor="#37673F"
+          backgroundColor="#fdfdfd"
+        />
+      }
+    >
       <RouterProvider router={router} />
     </Suspense>
   </React.StrictMode>
