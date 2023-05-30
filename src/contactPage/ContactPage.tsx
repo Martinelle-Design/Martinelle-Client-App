@@ -1,30 +1,102 @@
 import PageTitle from "../utilities/pageTitle/PageTitle";
 import TextField from "@mui/material/TextField";
 import { FormControl, FormLabel } from "@mui/material";
+import useLoadingState from "../hooks/use-loading-state";
+import { useState } from "react";
+import { validate as validateEmail } from "email-validator";
+import { validatePhoneNumber } from "../utilities/helpers/validatePhone";
+import axios from "axios";
+export type ContactMeInputProps = {
+  sender: {
+    email: string;
+    phone?: string;
+  };
+  subject: string;
+  message: string;
+  name: string;
+};
+const submitFormFunc = async (e?: ContactMeInputProps) => {
+  const result = await axios({
+    method: "post",
+    url: `https://${process.env.REACT_APP_API_ENDPOINT}/contact-data/contact`,
+    data: e,
+  });
+  return result.data;
+};
 const namespace = "contact-pg";
 const ContactPageFormInput = ({
   title,
   name,
   required,
   multiline,
+  error,
+  onBlur,
+  onFocus,
+  onChange,
+  errMessage,
 }: {
   title: string;
   name: string;
   required?: boolean;
   multiline?: boolean;
+  error?: boolean;
+  errMessage?: string;
+  onBlur?: () => void;
+  onFocus?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
   return (
-    <FormControl defaultValue="" required={required}>
-      <FormLabel className={`${namespace}-form-label`}>
+    <FormControl
+      defaultValue=""
+      required={required}
+      error={error}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+    >
+      <FormLabel className={`${namespace}-form-label`} error={error}>
         {title} {!required && <i>(Optional)</i>}
       </FormLabel>
       <TextField
+        error={error}
         className={`${namespace}-form-input`}
         name={name}
         required={required}
         multiline={multiline}
+        helperText={error && errMessage}
       ></TextField>
     </FormControl>
+  );
+};
+const PhoneInput = () => {
+  const [isPhoneValid, setIsPhoneValid] = useState(true);
+  const [value, setValue] = useState("");
+  return (
+    <ContactPageFormInput
+      title="PHONE"
+      name="phone_number"
+      error={!isPhoneValid}
+      onChange={(e) => setValue(e.target.value)}
+      onFocus={() => setIsPhoneValid(true)}
+      onBlur={() => setIsPhoneValid(validatePhoneNumber(value))}
+      errMessage="Please enter a valid phone number"
+    />
+  );
+};
+const EmailInput = () => {
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [value, setValue] = useState("");
+  return (
+    <ContactPageFormInput
+      title="EMAIL"
+      name="email"
+      required
+      onChange={(e) => setValue(e.target.value)}
+      error={!isEmailValid}
+      onFocus={() => setIsEmailValid(true)}
+      onBlur={() => setIsEmailValid(validateEmail(value))}
+      errMessage="Please enter a valid email"
+    />
   );
 };
 const ContactPageTextSection = ({
@@ -41,9 +113,28 @@ const ContactPageTextSection = ({
     </div>
   );
 };
+
 const ContactPage = () => {
-  const onSubmit = (e: React.FormEvent) => {
+  const { status, result, callFunction } = useLoadingState({
+    asyncFunc: submitFormFunc,
+  });
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (status === "loading") return;
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    const { first_name, last_name, email, phone_number, subject, message } =
+      data;
+    const inputs: ContactMeInputProps = {
+      name: `${first_name.toString()} ${last_name.toString()}`,
+      sender: {
+        phone: phone_number.toString(),
+        email: email.toString(),
+      },
+      subject: subject.toString(),
+      message: message.toString(),
+    };
+    callFunction(inputs);
   };
   return (
     <div className={namespace}>
@@ -77,14 +168,14 @@ const ContactPage = () => {
           <div className={`${namespace}-form-row`}>
             <ContactPageFormInput
               title="FIRST NAME"
-              name="first-name"
+              name="first_name"
               required
             />
-            <ContactPageFormInput title="LAST NAME" name="last-name" required />
+            <ContactPageFormInput title="LAST NAME" name="last_name" required />
           </div>
           <div className={`${namespace}-form-row`}>
-            <ContactPageFormInput title="EMAIL" name="email" required />
-            <ContactPageFormInput title="PHONE" name="phone-number" />
+            <EmailInput />
+            <PhoneInput />
           </div>
           <div
             style={{

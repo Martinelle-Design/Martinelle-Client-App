@@ -21,7 +21,7 @@
       margin-bottom: $fontSize * 2;
       font-size: $fontSize;
     }
-    p {
+    & > p {
       font-size: math.div($fontSize, 1.1) * 0.95;
       margin-bottom: $fontSize * 3;
     }

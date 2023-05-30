@@ -38,7 +38,7 @@ $namespace: "contact-pg";
   flex-direction: column;
   align-items: center;
   padding: 3.5rem;
-  margin-left:  15%;
+  margin-left: 15%;
   margin-right: 15%;
   margin-bottom: 4rem;
   box-sizing: border-box;
@@ -52,7 +52,7 @@ $namespace: "contact-pg";
     font-weight: 500;
     font-size: 1.2rem;
   }
-  p {
+  & > p {
     font-size: 0.95rem;
     line-height: 176%;
     margin: 0;
@@ -96,6 +96,13 @@ $namespace: "contact-pg";
   background-color: $white;
   & > * {
     border-radius: 0 !important;
+  }
+  .MuiFormHelperText-root.Mui-error {
+    position: absolute;
+    bottom: -1.9em;
+    left: 0;
+    margin: 0;
+
   }
   input {
     padding: 0.8em;
