@@ -34,6 +34,7 @@
     "web-vitals": "=2.1.4"
   },
   "scripts": {
+    "secrets": "doppler secrets download --no-file --format env > .env",
     "scss": "sass public/main.scss public/main.css",
     "start": "npm run scss && react-scripts start",
     "build": "npm run scss && react-scripts build",
