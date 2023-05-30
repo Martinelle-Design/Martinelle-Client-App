@@ -1,5 +1,9 @@
 import { Button } from "@mui/material";
-import { faSearch, faBars, faClose } from "@fortawesome/free-solid-svg-icons";
+import {
+  //  faSearch,
+  faBars,
+  faClose,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   useState,
@@ -18,7 +22,7 @@ import { pages } from "../secondaryNavbar/SecondaryNavbar";
 // import useClickOutside from "../../hooks/use-click-outside";
 const namespace = "general-navbar";
 
-const searchFunc = (str: string) => {};
+//const searchFunc = (str: string) => {};
 // const SearchBar = ({ navbarRef }: { navbarRef: HTMLElement | null }) => {
 //   const { textValue, onChange } = useDebouncedTextInput({
 //     debouncedFunc: searchFunc,
@@ -155,14 +159,17 @@ const NavDrawer = () => {
   );
 };
 const GeneralNavBar = ({ toggleBtn }: { toggleBtn?: boolean }) => {
-  const [navbarRef, setNavbarRef] = useState<null | HTMLElement>(null);
+  //const [navbarRef, setNavbarRef] = useState<null | HTMLElement>(null);
   const [mounted, setMounted] = useState(false);
   //here to set ref
   useEffect(() => {
     if (!mounted) setMounted(true);
   }, [mounted]);
   return (
-    <nav ref={(e) => setNavbarRef(e)} className={`${namespace}`}>
+    <nav
+      //ref={(e) => setNavbarRef(e)}
+      className={`${namespace}`}
+    >
       <Link to="/" aria-label="home">
         {<Logo height={"100%"} />}
       </Link>
