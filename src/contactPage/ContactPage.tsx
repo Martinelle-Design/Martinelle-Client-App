@@ -19,7 +19,7 @@ export type ContactMeInputProps = {
 const submitFormFunc = async (e?: ContactMeInputProps) => {
   const result = await axios({
     method: "post",
-    url: `https://${process.env.REACT_APP_API_ENDPOINT}/contact-data/contact`,
+    url: `https://${process.env.REACT_APP_API_ENDPOINT}/contact-info/contact`,
     data: e,
   });
   return result.data;

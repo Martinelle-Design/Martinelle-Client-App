@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
 import { unstable_batchedUpdates } from "react-dom";
-
 const useLoadingState = ({
   asyncFunc,
 }: {
