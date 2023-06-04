@@ -119,6 +119,13 @@ const ContactPage = () => {
   const { status, callFunction } = useLoadingState({
     asyncFunc: submitFormFunc,
   });
+  const [successMessage, setSuccessMessage] = useState<{
+    err: boolean;
+    message: string;
+  }>({
+    err: false,
+    message: "",
+  });
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (status === "loading") return;
@@ -163,7 +170,7 @@ const ContactPage = () => {
           <div
             style={{
               position: "absolute",
-              top:0,
+              top: 0,
               left: 0,
               width: "100%",
               height: "100%",
