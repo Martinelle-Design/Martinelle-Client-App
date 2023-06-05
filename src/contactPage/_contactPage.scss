@@ -4,9 +4,6 @@ $namespace: "contact-pg";
 }
 .#{$namespace}-banner-box {
   padding: 10% 10%;
-  // background-color: lighten($green, 55%);
-  // border: 1px solid $dark-green;
-  //   color: $dark-green;
   border-radius: 0.5em;
   margin: 0 2.2em;
   .#{$namespace}-banner-title {

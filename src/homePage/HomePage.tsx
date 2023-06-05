@@ -3,6 +3,7 @@ import HomePageImageBannerFull from "./utilities/HomePageImgBannerFull";
 import ProjectsClickableBanner from "../utilities/projectsCickableBanner/ProjectsClickableBanner";
 import { Link } from "react-router-dom";
 import ContactActionButton from "../utilities/contactActionBanner/ContactActionBanner";
+import homePageData from "./homePageData";
 const namespace = "home-pg";
 const HomePageBottomBanner = () => {
   return (
@@ -17,55 +18,58 @@ const HomePageBottomBanner = () => {
   );
 };
 const HomePage = () => {
+  const orderedHomePageItems = homePageData.sort(
+    (a, b) => a.orderIdx - b.orderIdx
+  );
   return (
     <div className={`${namespace}-container`}>
       <div className={`${namespace}-inner-container`}>
-        <HomePageImageBannerFull
-          customClass={`${namespace}-intro-banner`}
-          imgUrl=""
-          btnData={{ text: "Learn More".toUpperCase(), url: "/about" }}
-        >
-          Creating Unique Functional Interiors & Crafting Custom Furniture
-        </HomePageImageBannerFull>
-        <div className={`${namespace}-banner-containers`}>
-          <HomePageImageBanner
-            customClass={`${namespace}-img-banner-left`}
-            contentDirection="left"
-            imgUrl=""
-            title={"Services".toUpperCase()}
-            btnData={{ text: "Show More".toUpperCase(), url: "/services" }}
-          >
-            <p>
-              Our services offer a customized and comprehensive approach to
-              design. We help you envision the potential of your workplace by
-              ensuring your interior is delivered to the highest quality.
-            </p>
-            <p>
-              Custom designed furniture is our specialty. We create pieces
-              exclusively for your interior. Our team takes pride in assuring
-              each piece not only fits the space perfectly, but that it also
-              reflects our client’s personality.
-            </p>
-          </HomePageImageBanner>
-          <HomePageImageBanner
-            customClass={`${namespace}-img-banner-right`}
-            contentDirection="right"
-            imgUrl=""
-            title={"projects".toUpperCase()}
-            btnData={{ text: "Show More".toUpperCase(), url: "/projects" }}
-          >
-            <p>
-              Martinelle excels at building character in all our commercial and
-              residential projects. Our priority is to make sure the identity of
-              your brand is present in every corner, detail and accent.
-            </p>
-            <p>
-              We are committed to a design concept that meets your vision from
-              the functionality, aesthetic and ambiance perspective.
-            </p>
-          </HomePageImageBanner>
-        </div>
-
+        {orderedHomePageItems.map((item) => {
+          const { id, subType, actionBtnData, title, textDescription, images } =
+            item;
+          const imgEntries = Object.entries(images);
+          const imgOrder = imgEntries.sort((a, b) =>
+            a[1].orderIdx > b[1].orderIdx ? 1 : -1
+          );
+          if (subType === "full-banner")
+            return (
+              <HomePageImageBannerFull
+                key={id}
+                customClass={`${namespace}-intro-banner`}
+                imgUrl={imgOrder[0][1].imgUrl}
+                imgPlaceholderUrl={imgOrder[0][1].placeholderUrl}
+                imgDescription={imgOrder[0][1].description}
+                btnData={{
+                  text: actionBtnData.text.toUpperCase(),
+                  url: actionBtnData.url,
+                }}
+              >
+                {title}
+              </HomePageImageBannerFull>
+            );
+          const bannerDirection =
+            subType === "half-banner-left" ? "left" : "right";
+          return (
+            <HomePageImageBanner
+              key={id}
+              customClass={`${namespace}-img-banner-${bannerDirection}`}
+              contentDirection={bannerDirection}
+              imgUrl={imgOrder[0][1].imgUrl}
+              imgPlaceholderUrl={imgOrder[0][1].placeholderUrl}
+              title={title.toUpperCase()}
+              btnData={{
+                text: actionBtnData.text.toUpperCase(),
+                url: actionBtnData.url,
+              }}
+            >
+              {textDescription
+                ? textDescription
+                    .split("\n")
+                    .map((item, idx) => <p key={idx}>{item}</p>)
+                : []}
+            </HomePageImageBanner>
+          );
+        })}
         <HomePageBottomBanner />
       </div>
     </div>

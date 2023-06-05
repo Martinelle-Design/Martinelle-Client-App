@@ -1,5 +1,7 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import PageTitle from "../utilities/pageTitle/PageTitle";
+import { servicesData } from "./servicesData";
+import seperateToWords from "../utilities/helpers/seperateToWords";
 const namespace = "services-pg";
 type ServiceRowProps = {
   title: string;
@@ -8,76 +10,6 @@ type ServiceRowProps = {
   imgDescription?: string;
   items: string[];
 };
-const servicesData: ServiceRowProps[] = [
-  {
-    title: "MARKETS",
-    items: [
-      "Residential Design",
-      "Retail Design",
-      "Restaurant Design",
-      "Hospitality Design ",
-      "Workplace Design",
-      "Pop-Up Experiences",
-      "Shop-In-Shop’s",
-      "Sports & Entertainment Venues",
-      "Multifamily Developments",
-      "Senior / Student Living",
-      "Experience Adaptations",
-      "Landscape / Gardens Design",
-      "Mixed-Use",
-      "Multifamily Residential",
-      "Art Galleries",
-      "Venues",
-    ],
-  },
-  {
-    title: "ARCHITECTURE/ INTERIOR DESIGN",
-    items: [
-      "Project planning",
-      "Floor Plans",
-      "Concept development",
-      "Color & Material Selection",
-      "Options Selection",
-      "Artwork & Accessory",
-      "Services Lighting / Ceiling Design",
-      "Consultation Material",
-      "Finish Selections Space",
-      "Planning Sustainable Design",
-      "Theme & Concept Development",
-      "Custom Cabinetry Design",
-      "Adaptive Re-use",
-    ],
-  },
-  {
-    title: "FURNITURE MANUFACTURING",
-    items: [
-      "Custom Furniture Design",
-      "Textile Technology",
-      "Furniture Selection",
-      "Wall Panelling Design",
-      "Mirror Design ",
-      "Custom Cabinetry Manufacturing",
-      "Custom Outdoor Furniture",
-      "Custom Baby & Child",
-      "Furniture Plans & Detailed Specifications",
-      "DevelopmentFF&E Inventories",
-      "Re-Use AnalysisFF&E",
-    ],
-  },
-  {
-    title: "CLIENT  VISUALIZATION",
-    items: [
-      "Animations & Renderings",
-      "3D Architectural Modeling",
-      "Photo-Real / Non-Photo-Real Renderings",
-      "3D Animations",
-      "360 Degree VR Tours",
-      "Coordination Design",
-      "Analysis Material & Finish",
-      "Mood Boards",
-    ],
-  },
-];
 const ServiceRow = ({
   title,
   imgUrl,
@@ -109,17 +41,31 @@ const ServiceRow = ({
   );
 };
 const ServicesPage = () => {
+  const orderedServicePageItems = servicesData.sort(
+    (a, b) => a.orderIdx - b.orderIdx
+  );
   return (
     <div className={namespace}>
       <PageTitle text={"Services".toUpperCase()} />
       <div className={`${namespace}-rows`}>
-        {servicesData.map((service) => (
-          <ServiceRow
-            items={service.items}
-            title={service.title}
-            key={service.title}
-          />
-        ))}
+        {orderedServicePageItems.map((service) => {
+          const { id, images, subCategories, subType } = service;
+          const imgEntries = Object.entries(images);
+          const imgOrder = imgEntries.sort((a, b) =>
+            a[1].orderIdx > b[1].orderIdx ? 1 : -1
+          );
+          const title = seperateToWords(subType).toUpperCase();
+          return (
+            <ServiceRow
+              items={subCategories}
+              title={title}
+              key={id}
+              imgUrl={imgOrder[0][1].imgUrl}
+              imgDescription={imgOrder[0][1].description}
+              imgPlaceholderUrl={imgOrder[0][1].placeholderUrl}
+            />
+          );
+        })}
       </div>
     </div>
   );

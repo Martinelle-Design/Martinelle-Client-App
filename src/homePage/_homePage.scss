@@ -22,7 +22,7 @@ $namespace: "home-pg";
   justify-content: center;
   font-size: 1.3em;
   font-weight: 400;
-  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .#{$namespace}-category-nav {
   $btnWidth: 5em;
@@ -35,22 +35,12 @@ $namespace: "home-pg";
     $fontSize: 2em
   );
 }
-
-
-.#{$namespace}-banner-containers {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  .#{$namespace}-img-banner-left,
-  .#{$namespace}-img-banner-right {
-    margin: 3em 0;
-    &:last-child {
-      margin-top: 0;
-    }
-  }
+.#{$namespace}-img-banner-left,
+.#{$namespace}-img-banner-right {
+  margin-top: 3em;
 }
-
 .#{$namespace}-bottom-banner-action {
+  margin-top: 3em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,4 +70,3 @@ $namespace: "home-pg";
     margin-bottom: 3.5em;
   }
 }
-
