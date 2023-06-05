@@ -1,12 +1,22 @@
 import PageTitle from "../utilities/pageTitle/PageTitle";
 import TextField from "@mui/material/TextField";
-import { FormControl, FormLabel } from "@mui/material";
+import { FormControl, FormLabel, darken, lighten } from "@mui/material";
 import useLoadingState from "../hooks/use-loading-state";
 import { useState } from "react";
 import { validate as validateEmail } from "email-validator";
 import { validatePhoneNumber } from "../utilities/helpers/validatePhone";
 import axios from "axios";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import LoadingIcon from "../utilities/loadingIcon/LoadingIcon";
+import PopUpModal from "../utilities/popUpModal/PopUpModal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  IconDefinition,
+  faCheckCircle,
+  faTimesCircle,
+} from "@fortawesome/free-regular-svg-icons";
+//import { lighten, darken } from "../utilities/helpers/changeColorShade";
 export type ContactMeInputProps = {
   sender: {
     email: string;
@@ -114,7 +124,51 @@ const ContactPageTextSection = ({
     </div>
   );
 };
-
+const ContactPageFormBannerMessage = ({
+  setSuccessMessage,
+  icon,
+  title,
+  message,
+  color,
+}: {
+  icon: IconDefinition;
+  title: string;
+  message: string;
+  color: string;
+  setSuccessMessage: React.Dispatch<
+    React.SetStateAction<{
+      err: boolean;
+      message: string;
+    }>
+  >;
+}) => {
+  return (
+    <PopUpModal onClose={() => setSuccessMessage({ err: false, message: "" })}>
+      <Box
+        className={`${namespace}-banner-box`}
+        sx={{
+          backgroundColor: `${lighten(color, 0.85)}`,
+          border: `1px solid ${darken(color, 0.2)}`,
+          color: color,
+        }}
+      >
+        <Typography
+          className={`${namespace}-banner-title`}
+          variant="h6"
+          component="h2"
+        >
+          <FontAwesomeIcon icon={icon} /> {title}
+        </Typography>
+        <Typography
+          className={`${namespace}-banner-description`}
+          sx={{ mt: 2 }}
+        >
+          {message}
+        </Typography>
+      </Box>
+    </PopUpModal>
+  );
+};
 const ContactPage = () => {
   const { status, callFunction } = useLoadingState({
     asyncFunc: submitFormFunc,
@@ -146,6 +200,24 @@ const ContactPage = () => {
   };
   return (
     <div className={namespace}>
+      {!successMessage.err && successMessage.message.length > 0 && (
+        <ContactPageFormBannerMessage
+          color="#37673F"
+          icon={faCheckCircle}
+          setSuccessMessage={setSuccessMessage}
+          message="Please await a response from our team."
+          title="Your email was recieved!"
+        />
+      )}
+      {successMessage.err && (
+        <ContactPageFormBannerMessage
+          color="#b04141"
+          icon={faTimesCircle}
+          setSuccessMessage={setSuccessMessage}
+          message="There was an error with your submission. Please try again."
+          title="There was an error!"
+        />
+      )}
       <PageTitle text={"Contact Us".toUpperCase()} />
       <ContactPageTextSection headerText="GENERAL INQUIRIES">
         <>

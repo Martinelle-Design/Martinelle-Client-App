@@ -3,13 +3,18 @@
 $namespace: "project-page";
 .#{$namespace} {
   padding: 0 5%;
+  min-height: calc(100vh - #{$navbar-height});
+  display: flex;
+  flex-direction: column;
 }
 .#{$namespace}-text-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
   $fontSize: 1.7rem;
   h2 {
+    align-self: center;
     position: relative;
     font-weight: 400;
     font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

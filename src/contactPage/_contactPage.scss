@@ -2,6 +2,23 @@ $namespace: "contact-pg";
 .#{$namespace} {
   padding: 0 5%;
 }
+.#{$namespace}-banner-box {
+  padding: 10% 10%;
+  // background-color: lighten($green, 55%);
+  // border: 1px solid $dark-green;
+  //   color: $dark-green;
+  border-radius: 0.5em;
+  margin: 0 2.2em;
+  .#{$namespace}-banner-title {
+    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+  }
+  .#{$namespace}-banner-description {
+    font-family: "Vollkorn", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+  }
+}
+
 .#{$namespace}-text-section {
   display: flex;
   flex-direction: column;
@@ -79,7 +96,6 @@ $namespace: "contact-pg";
       margin-bottom: 0;
     }
   }
-
 }
 .#{$namespace}-form-row {
   & > * {
