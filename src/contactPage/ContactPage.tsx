@@ -16,7 +16,6 @@ import {
   faCheckCircle,
   faTimesCircle,
 } from "@fortawesome/free-regular-svg-icons";
-//import { lighten, darken } from "../utilities/helpers/changeColorShade";
 export type ContactMeInputProps = {
   sender: {
     email: string;
