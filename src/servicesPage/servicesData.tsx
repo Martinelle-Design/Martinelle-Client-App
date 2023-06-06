@@ -1,5 +1,6 @@
 import { ServiceItem } from "../utilities/types/types";
 import { v4 as uuid } from "uuid";
+import { generateImgLocation } from "../utilities/helpers/generateImgLocation";
 export const servicesData: ServiceItem[] = [
   {
     subType: "markets",
@@ -19,8 +20,11 @@ export const servicesData: ServiceItem[] = [
         },
         id: uuid(),
         timestamp: Date.now(),
-        imgUrl: "",
-        placeholderUrl: "",
+        imgUrl: generateImgLocation("ServicesPage /Services/Markets/index")
+          .imgUrl,
+        placeholderUrl: generateImgLocation(
+          "ServicesPage /Services/Markets/index"
+        ).imgPlaceholderUrl,
         description: "",
         orderIdx: 0,
       },
@@ -62,8 +66,12 @@ export const servicesData: ServiceItem[] = [
         },
         id: uuid(),
         timestamp: Date.now(),
-        imgUrl: "",
-        placeholderUrl: "",
+        imgUrl: generateImgLocation(
+          "ServicesPage /Services/Architecture:InteriorDesign/index"
+        ).imgUrl,
+        placeholderUrl: generateImgLocation(
+          "ServicesPage /Services/Architecture:InteriorDesign/index"
+        ).imgPlaceholderUrl,
         description: "",
         orderIdx: 0,
       },
@@ -102,8 +110,12 @@ export const servicesData: ServiceItem[] = [
         },
         id: uuid(),
         timestamp: Date.now(),
-        imgUrl: "",
-        placeholderUrl: "",
+        imgUrl: generateImgLocation(
+          "ServicesPage /Services/FurnitureManufacturing/index"
+        ).imgUrl,
+        placeholderUrl: generateImgLocation(
+          "ServicesPage /Services/FurnitureManufacturing/index"
+        ).imgPlaceholderUrl,
         description: "",
         orderIdx: 0,
       },
@@ -140,8 +152,12 @@ export const servicesData: ServiceItem[] = [
         },
         id: uuid(),
         timestamp: Date.now(),
-        imgUrl: "",
-        placeholderUrl: "",
+        imgUrl: generateImgLocation(
+          "ServicesPage /Services/ClientVisualization/index"
+        ).imgUrl,
+        placeholderUrl: generateImgLocation(
+          "ServicesPage /Services/ClientVisualization/index"
+        ).imgPlaceholderUrl,
         description: "",
         orderIdx: 0,
       },

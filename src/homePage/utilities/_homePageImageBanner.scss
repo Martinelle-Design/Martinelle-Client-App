@@ -2,7 +2,6 @@
 $namespace: "home-page-img-banner";
 .#{$namespace}-container {
   position: relative;
-  //min-height: calc(100vh - #{$navbar-height});
   width: 100%;
   display: flex;
   justify-content: center;
@@ -10,7 +9,7 @@ $namespace: "home-page-img-banner";
 }
 
 .#{$namespace}-content-container {
-    padding: 5% 0;
+  padding: 5% 0;
   position: relative;
   z-index: 2;
   display: flex;
@@ -85,7 +84,6 @@ $namespace: "home-page-img-banner";
     z-index: 0;
     height: 100%;
     width: 100%;
-    background-color: black;
   }
   @include img-fill;
   & > span {
@@ -97,7 +95,6 @@ $namespace: "home-page-img-banner";
 $namespace: "home-pg-img-banner-full";
 .#{$namespace}-img-container {
   position: relative;
-  background-color: black;
   aspect-ratio: 16/8;
   @include img-fill;
   & > span {

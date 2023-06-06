@@ -1,5 +1,6 @@
 import { HomePageItems } from "../utilities/types/types";
 import { v4 as uuid } from "uuid";
+import { generateImgLocation } from "../utilities/helpers/generateImgLocation";
 const homePageData: HomePageItems[] = [
   {
     id: uuid(),
@@ -24,8 +25,9 @@ const homePageData: HomePageItems[] = [
         },
         id: uuid(),
         timestamp: Date.now(),
-        imgUrl: "",
-        placeholderUrl: "",
+        imgUrl: generateImgLocation("Homepage/home/MainImage/index").imgUrl,
+        placeholderUrl: generateImgLocation("Homepage/home/MainImage/index")
+          .imgPlaceholderUrl,
         description: "",
         orderIdx: 0,
       },
@@ -56,8 +58,9 @@ const homePageData: HomePageItems[] = [
         },
         id: uuid(),
         timestamp: Date.now(),
-        imgUrl: "",
-        placeholderUrl: "",
+        imgUrl: generateImgLocation("Homepage/home/ServicesImage/index").imgUrl,
+        placeholderUrl: generateImgLocation("Homepage/home/ServicesImage/index")
+          .imgPlaceholderUrl,
         description: "",
         orderIdx: 0,
       },
@@ -88,8 +91,9 @@ const homePageData: HomePageItems[] = [
         },
         id: uuid(),
         timestamp: Date.now(),
-        imgUrl: "",
-        placeholderUrl: "",
+        imgUrl: generateImgLocation("Homepage/home/ProjectsImage/index").imgUrl,
+        placeholderUrl: generateImgLocation("Homepage/home/ProjectsImage/index")
+          .imgPlaceholderUrl,
         description: "",
         orderIdx: 0,
       },

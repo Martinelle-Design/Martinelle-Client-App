@@ -5,6 +5,7 @@ import ContactActionButton from "../utilities/contactActionBanner/ContactActionB
 import ImageSlide, { ImageProps } from "../utilities/imageSlide/ImageSlide";
 import { v4 as uuid } from "uuid";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { generateImgLocation } from "../utilities/helpers/generateImgLocation";
 const fetchTextFile = () =>
   fetch(text)
     .then((res) => res.text())
@@ -12,19 +13,19 @@ const fetchTextFile = () =>
 const presentationImages: (ImageProps & { id: string })[] = [
   {
     id: uuid(),
-    imgUrl: "hello",
+    ...generateImgLocation("AboutUS /AboutPage/BottomPictures/1/index"),
   },
   {
     id: uuid(),
-    imgUrl: "hello2",
+    ...generateImgLocation("AboutUS /AboutPage/BottomPictures/2/index"),
   },
   {
     id: uuid(),
-    imgUrl: "hello3",
+    ...generateImgLocation("AboutUS /AboutPage/BottomPictures/3/index"),
   },
   {
     id: uuid(),
-    imgUrl: "hello3",
+    ...generateImgLocation("AboutUS /AboutPage/BottomPictures/4/index"),
   },
 ];
 const namespace = "about-pg";
@@ -39,11 +40,19 @@ const AboutPage = () => {
   useEffect(() => {
     textCallFunction();
   }, [textCallFunction]);
+  const { imgUrl, imgPlaceholderUrl } = generateImgLocation(
+    "AboutUS /AboutPage/MainImage/index"
+  );
   return (
     <div className={namespace}>
       <div className={`${namespace}-img-banner`}>
         <div className={`${namespace}-img-banner-img`}>
-          <LazyLoadImage src={""} alt={"about-banner"} effect="blur" />
+          <LazyLoadImage
+            src={`${imgUrl}`}
+            placeholderSrc={`${imgPlaceholderUrl}`}
+            alt={"about-banner"}
+            effect="blur"
+          />
         </div>
         <div className={`${namespace}-img-banner-text`}>
           {"About Martinelle Design".toUpperCase()}
@@ -60,7 +69,10 @@ const AboutPage = () => {
             key={img.id}
             className={`${namespace}-img-presentation-container`}
           >
-            <ImageSlide imgUrl={img.imgUrl} />
+            <ImageSlide
+              imgUrl={img.imgUrl}
+              imgPlaceholderUrl={img.imgPlaceholderUrl}
+            />
           </div>
         ))}
       </div>

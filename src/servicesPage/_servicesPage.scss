@@ -35,11 +35,12 @@ $margin: 1rem;
   justify-content: center;
 }
 .#{$namespace}-row-img {
+  display:flex;
   width: 40%;
   flex-grow: 1;
   aspect-ratio: 16/9;
-  background-color: black;
   margin-bottom: $margin * 2;
+  @include img-fill;
 }
 .#{$namespace}-row-items-container {
   display: flex;
