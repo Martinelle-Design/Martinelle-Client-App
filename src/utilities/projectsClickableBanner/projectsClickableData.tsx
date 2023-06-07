@@ -1,5 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { ProjectButtonItem } from "../types/types";
+import { generateImgLocation } from "../helpers/generateImgLocation";
 export const projectsClickableData: ProjectButtonItem[] = [
   {
     title: "PRIVATE RESIDENTIAL",
@@ -19,8 +20,12 @@ export const projectsClickableData: ProjectButtonItem[] = [
       },
       id: uuid(),
       timestamp: Date.now(),
-      imgUrl: "",
-      placeholderUrl: "",
+      imgUrl: generateImgLocation(
+        "Homepage/home/BrowseInteriorProjects/PrivateResidential/index"
+      ).imgUrl,
+      placeholderUrl: generateImgLocation(
+        "Homepage/home/BrowseInteriorProjects/PrivateResidential/index"
+      ).imgPlaceholderUrl,
       description: "",
       orderIdx: 0,
     },
@@ -43,8 +48,12 @@ export const projectsClickableData: ProjectButtonItem[] = [
       },
       id: uuid(),
       timestamp: Date.now(),
-      imgUrl: "",
-      placeholderUrl: "",
+      imgUrl: generateImgLocation(
+        "Homepage/home/BrowseInteriorProjects/Commercial/index"
+      ).imgUrl,
+      placeholderUrl: generateImgLocation(
+        "Homepage/home/BrowseInteriorProjects/Commercial/index"
+      ).imgPlaceholderUrl,
       description: "",
       orderIdx: 0,
     },
@@ -67,8 +76,12 @@ export const projectsClickableData: ProjectButtonItem[] = [
       },
       id: uuid(),
       timestamp: Date.now(),
-      imgUrl: "",
-      placeholderUrl: "",
+      imgUrl: generateImgLocation(
+        "Homepage/home/BrowseInteriorProjects/FurnitureManufacturing /index"
+      ).imgUrl,
+      placeholderUrl: generateImgLocation(
+        "Homepage/home/BrowseInteriorProjects/FurnitureManufacturing /index"
+      ).imgPlaceholderUrl,
       description: "",
       orderIdx: 0,
     },
@@ -91,8 +104,12 @@ export const projectsClickableData: ProjectButtonItem[] = [
       },
       id: uuid(),
       timestamp: Date.now(),
-      imgUrl: "",
-      placeholderUrl: "",
+      imgUrl: generateImgLocation(
+        "Homepage/home/BrowseInteriorProjects/Hospitality/index"
+      ).imgUrl,
+      placeholderUrl: generateImgLocation(
+        "Homepage/home/BrowseInteriorProjects/Hospitality/index"
+      ).imgPlaceholderUrl,
       description: "",
       orderIdx: 0,
     },

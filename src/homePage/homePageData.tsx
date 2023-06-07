@@ -41,7 +41,7 @@ const homePageData: HomePageItems[] = [
     timestamp: Date.now(),
     subType: "half-banner-left",
     textDescription:
-      "Our services offer a customized and comprehensive approach to design. We help you envision the potential of your workplace by ensuring your interior is delivered to the highest quality. \n Custom designed furniture is our specialty. We create pieces exclusively for your interior. Our team takes pride in assuring each piece not only fits the space perfectly, but that it also reflects our client’s personality.",
+      "Our services offer a customized and comprehensive approach to design. We help you envision the full potential of your interior, by ensuring your project is delivered to the highest quality.\n Custom designed furniture is our speciality. Our pieces are created exclusively for your interior. We take pride in assuring each piece not only fits the space perfectly, but that it also reflects our client’s personality.",
     pk: {
       itemType: "home-page-item",
       orderIdx: 1,
@@ -74,7 +74,7 @@ const homePageData: HomePageItems[] = [
     timestamp: Date.now(),
     subType: "half-banner-right",
     textDescription:
-      "Martinelle excels at building character in all our commercial and residential projects. Our priority is to make sure the identity ofyour brand is present in every corner, detail and accent. \n We are committed to a design concept that meets your vision from the functionality, aesthetic and ambiance perspective.",
+      "Martinelle excels at building character in all our commercial and residential projects. Our priority is to make sure the identity of your brand is present in every corner, detail and accent.\nWe are fully committed to a design concept that meets your vision from the functionality, aesthetic and ambiance perspective.",
     pk: {
       itemType: "home-page-item",
       orderIdx: 2,

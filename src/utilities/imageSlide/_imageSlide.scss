@@ -1,4 +1,4 @@
-@use '../../../public/variables' as v;
+@use "../../../public/variables" as v;
 $namespace: "image-slide";
 .#{$namespace}-img-slide {
   display: flex;
@@ -36,4 +36,8 @@ $namespace: "image-slide";
   height: 100%;
   aspect-ratio: 12/16;
   background-color: v.$gray;
+  display: flex;
+  & > * {
+    aspect-ratio: 12/16;
+  };
 }

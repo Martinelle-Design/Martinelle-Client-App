@@ -1,6 +1,6 @@
 import HomePageImageBanner from "./utilities/HomePageImageBanner";
 import HomePageImageBannerFull from "./utilities/HomePageImgBannerFull";
-import ProjectsClickableBanner from "../utilities/projectsCickableBanner/ProjectsClickableBanner";
+import ProjectsClickableBanner from "../utilities/projectsClickableBanner/ProjectsClickableBanner";
 import { Link } from "react-router-dom";
 import ContactActionButton from "../utilities/contactActionBanner/ContactActionBanner";
 import homePageData from "./homePageData";

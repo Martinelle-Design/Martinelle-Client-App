@@ -1,5 +1,5 @@
 import PageTitle from "../utilities/pageTitle/PageTitle";
-import ProjectsClickableBanner from "../utilities/projectsCickableBanner/ProjectsClickableBanner";
+import ProjectsClickableBanner from "../utilities/projectsClickableBanner/ProjectsClickableBanner";
 const namespace = "project-page";
 const ProjectIndexPage = () => {
   return (

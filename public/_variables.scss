@@ -81,6 +81,7 @@ $small-navbar-height: 4.8rem;
     height: 100%;
   }
   img {
+    display: inherit;
     object-fit: cover;
     object-position: center;
     width: 100%;

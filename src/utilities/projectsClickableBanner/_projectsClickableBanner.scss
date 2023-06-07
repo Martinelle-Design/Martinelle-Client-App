@@ -10,6 +10,9 @@ $namespace: "projects-clickable-banner";
   width: 100%;
   margin: 0 2%;
   padding: 0;
+  .image-slide-img-container {
+    height: auto;
+  }
   cursor: pointer;
   &:first-child {
     margin-left: 0;
