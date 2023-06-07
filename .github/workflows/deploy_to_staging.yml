@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: stg
-      url: https://stg.martinelledesign.com
+      url: https://clientstg.martinelledesign.com
     steps:
     - uses: actions/checkout@v1
     - uses: aasmal97/deploy-react-app-to-aws@v1.3.0
