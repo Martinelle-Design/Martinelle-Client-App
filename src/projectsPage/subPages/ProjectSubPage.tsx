@@ -220,14 +220,16 @@ const ProjectSubPage = ({
 }: {
   className?: string;
   title: string;
-  imgArr: ImageProps[];
+  imgArr: (ImageProps & {
+    id: string;
+  })[];
 }) => {
   return (
     <div className={`${namespace} ${className ? className : ""}`}>
       <PageTitle text={title.toUpperCase()} />
       <div className={`${namespace}-media-container`}>
         {imgArr.map((img, i) => (
-          <ProjectSubPageImage img={img} key={i} />
+          <ProjectSubPageImage img={img} key={img.id} />
         ))}
       </div>
     </div>

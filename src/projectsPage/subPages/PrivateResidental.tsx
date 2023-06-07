@@ -1,8 +1,10 @@
 import ProjectSubPage from "./ProjectSubPage";
 import { ImageProps } from "../../utilities/imageSlide/ImageSlide";
 import { generateProjectImagesLocation } from "./generateProjectImageLocation";
-const imageArr: ImageProps[] = generateProjectImagesLocation({
-  folderName: "ResidentialPage", 
+const imageArr: (ImageProps & {
+  id: string;
+})[] = generateProjectImagesLocation({
+  folderName: "ResidentialPage",
   number: 30,
 });
 const PrivateResidental = () => {
