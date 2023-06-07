@@ -13,7 +13,7 @@ $namespace: "about-pg";
   align-items: center;
   justify-content: center;
   width: 100%;
-  aspect-ratio: 16/7.5;
+  aspect-ratio: 16/8.5;
 
   .#{$namespace}-img-banner-img {
     position: absolute;
@@ -52,9 +52,11 @@ $namespace: "about-pg";
   justify-content: center;
   box-sizing: border-box;
   font-size: 1.5rem;
-  margin: 4em;
-  padding: 4em;
-  width: calc(100% - 4em * 2);
+  // margin: 4em;
+  // padding: 4em;
+  margin: 10%;
+  padding: 10%;
+  width: calc(100% - 10% * 2);
   border: 1px solid $gray;
   p {
     text-align: center;
@@ -70,7 +72,7 @@ $namespace: "about-pg";
   display: flex;
   justify-content: space-between;
   margin-bottom: 3.5rem;
-  padding: 0 4em;
+  padding: 0 10%;
 }
 .#{$namespace}-img-presentation-container {
   text-decoration: none;
