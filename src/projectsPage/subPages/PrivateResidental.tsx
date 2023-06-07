@@ -1,8 +1,9 @@
 import ProjectSubPage from "./ProjectSubPage";
 import { ImageProps } from "../../utilities/imageSlide/ImageSlide";
-const imageArr: ImageProps[] = Array(1).fill({
-  imgUrl: "https://martinelle-design-static-files.s3.amazonaws.com/ServicesPage+/Services/Index-placeholder.ClientVisualization.jpg",
-  imgPlaceholderUrl: "",
+import { generateProjectImagesLocation } from "./generateProjectImageLocation";
+const imageArr: ImageProps[] = generateProjectImagesLocation({
+  folderName: "ResidentialPage", 
+  number: 30,
 });
 const PrivateResidental = () => {
   return <ProjectSubPage title="Featured Residental" imgArr={imageArr} />;

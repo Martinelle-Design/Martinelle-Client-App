@@ -1,8 +1,9 @@
 import ProjectSubPage from "./ProjectSubPage";
 import { ImageProps } from "../../utilities/imageSlide/ImageSlide";
-const imageArr: ImageProps[] = Array(10).fill({
-  imgUrl: "",
-  imgPlaceholderUrl: "",
+import { generateProjectImagesLocation } from "./generateProjectImageLocation";
+const imageArr: ImageProps[] = generateProjectImagesLocation({
+  folderName: "HospitalityPage",
+  number: 15,
 });
 const Hospitality = () => {
   return (
