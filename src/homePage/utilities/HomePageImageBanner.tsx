@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import useIntersectionObserver from "../../hooks/use-intersection-observer";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import useWindowWidth from "../../hooks/use-window-width";
 const namespace = "home-page-img-banner";
 export type HomePageImageBannerContentProps = {
-  title: string;
+  title?: string;
   children: string | JSX.Element | JSX.Element[];
   btnData: {
     text: string;
@@ -18,25 +19,28 @@ export type HomePageImageBannerContentProps = {
     ) => void;
   };
 };
+const HomePageHeader = ({ title }: { title?: string }) => {
+  const titleRef = useRef<HTMLHeadingElement | null>(null);
+  const titleEntry = useIntersectionObserver(titleRef, {});
+  const isTitleVisible = !!titleEntry?.isIntersecting;
+  return (
+    <h3
+      ref={titleRef}
+      className={`${namespace}-content-title${isTitleVisible ? " show" : ""}`}
+    >
+      {title}
+    </h3>
+  );
+};
 const HomePageImageBannerContent = ({
   title,
   children,
   btnData,
 }: HomePageImageBannerContentProps) => {
-  const titleRef = useRef<HTMLHeadingElement | null>(null);
-  const titleEntry = useIntersectionObserver(titleRef, {});
-  const isTitleVisible = !!titleEntry?.isIntersecting;
   return (
     <div className={`${namespace}-content-container`}>
       <div className={`${namespace}-content`}>
-        <h3
-          ref={titleRef}
-          className={`${namespace}-content-title${
-            isTitleVisible ? " show" : ""
-          }`}
-        >
-          {title}
-        </h3>
+        {title ? <HomePageHeader title={title} /> : null}
         <div className={`${namespace}-content-inner-container`}>{children}</div>
         {btnData.url ? (
           <Link
@@ -87,23 +91,28 @@ const HomePageImageBanner = ({
   contentDirection?: "left" | "right";
 } & ImageProps &
   HomePageImageBannerContentProps) => {
+  const mediumWindowWidth = useWindowWidth(768);
   return (
     <div
       className={`${namespace}-container${
         customClass ? " " + customClass : ""
       }`}
     >
-      {contentDirection === "left" && (
+      {!mediumWindowWidth && <HomePageHeader title={title} />}
+      {(!mediumWindowWidth || contentDirection === "left") && (
         <HomePageImageBannerImage
           imgUrl={imgUrl}
           imgDescription={imgDescription}
           imgPlaceholderUrl={imgPlaceholderUrl}
         />
       )}
-      <HomePageImageBannerContent title={title} btnData={btnData}>
+      <HomePageImageBannerContent
+        title={mediumWindowWidth ? title : ""}
+        btnData={btnData}
+      >
         {children}
       </HomePageImageBannerContent>
-      {contentDirection === "right" && (
+      {mediumWindowWidth && contentDirection === "right" && (
         <HomePageImageBannerImage
           imgUrl={imgUrl}
           imgDescription={imgDescription}
