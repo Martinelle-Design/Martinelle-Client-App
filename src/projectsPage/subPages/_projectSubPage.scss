@@ -18,7 +18,7 @@ $spacing: 3rem;
 .#{$namespace}-media-container-img {
   @include v.remove-btn-default;
   font-size: $spacing;
-  background-color: black;
+  background-color: v.$gray;
   aspect-ratio: 1;
   .lazy-load-image-background {
     width: 100%;
