@@ -12,7 +12,7 @@ const SocialMedia = () => {
   return (
     <div className="social-media-container">
       <a
-        href="https://www.linkedin.com/in/martinelledesign/"
+        href="https://www.linkedin.com/company/martinelle-design/"
         target="_blank"
         rel="noreferrer"
       >
