@@ -49,20 +49,20 @@ const ServicesPage = () => {
       <PageTitle text={"Services".toUpperCase()} />
       <div className={`${namespace}-rows`}>
         {orderedServicePageItems.map((service) => {
-          const { id, images, subCategories, subType } = service;
-          const imgEntries = Object.entries(images);
+          const { id, images, subCategories, title } = service;
+          const imgEntries = images ? Object.entries(images) : [];
           const imgOrder = imgEntries.sort((a, b) =>
             a[1].orderIdx > b[1].orderIdx ? 1 : -1
           );
-          const title = seperateToWords(subType).toUpperCase();
+          const newTitle = seperateToWords(title).toUpperCase();
           return (
             <ServiceRow
               items={subCategories}
-              title={title}
+              title={newTitle}
               key={id}
-              imgUrl={imgOrder[0][1].imgUrl}
-              imgDescription={imgOrder[0][1].description}
-              imgPlaceholderUrl={imgOrder[0][1].placeholderUrl}
+              imgUrl={imgOrder?.[0]?.[1].imgUrl}
+              imgDescription={imgOrder?.[0]?.[1].description}
+              imgPlaceholderUrl={imgOrder?.[0]?.[1].placeholderUrl}
             />
           );
         })}

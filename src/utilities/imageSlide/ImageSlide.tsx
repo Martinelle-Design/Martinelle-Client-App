@@ -3,7 +3,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 const namespace = "image-slide";
 export type ImageProps = {
   imgPlaceholderUrl?: string;
-  imgUrl: string;
+  imgUrl?: string;
   imgDescription?: string;
 };
 export const ImageSlide = ({

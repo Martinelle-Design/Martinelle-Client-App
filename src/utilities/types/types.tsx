@@ -16,7 +16,10 @@ export type GeneralProps = {
   timestamp: number;
   pk: {
     itemType: string;
-    orderIdx: number;
+    timestamp: number;
+  };
+  images?: {
+    [key: string]: Image;
   };
 };
 export type Image = {
@@ -27,9 +30,6 @@ export type Image = {
 export type HomePageItems = {
   itemType: "home-page-item";
   subType: "full-banner" | "half-banner-left" | "half-banner-right";
-  images: {
-    [key: string]: Image;
-  };
   textDescription?: string;
   title: string;
   actionBtnData: {
@@ -39,23 +39,16 @@ export type HomePageItems = {
 } & GeneralProps;
 export type ServiceItem = {
   itemType: "service-item";
-  subType: (typeof serviceSubType)[number];
-  images: {
-    [key: string]: Image;
-  };
+  title: string;
   subCategories: string[];
 } & GeneralProps;
 export type ProjectItem = {
   itemType: "project-item";
-  subType: (typeof projectSubType)[number];
-  images: {
-    [key: string]: Image;
-  };
+  subType: string;
   caption?: string;
 } & GeneralProps;
 export type ProjectButtonItem = {
   itemType: "project-button-item";
-  images: Image;
   title: string;
   url: string;
 } & GeneralProps;

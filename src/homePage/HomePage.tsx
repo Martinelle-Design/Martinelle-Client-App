@@ -27,7 +27,7 @@ const HomePage = () => {
         {orderedHomePageItems.map((item) => {
           const { id, subType, actionBtnData, title, textDescription, images } =
             item;
-          const imgEntries = Object.entries(images);
+          const imgEntries = images ? Object.entries(images) : [];
           const imgOrder = imgEntries.sort((a, b) =>
             a[1].orderIdx > b[1].orderIdx ? 1 : -1
           );
