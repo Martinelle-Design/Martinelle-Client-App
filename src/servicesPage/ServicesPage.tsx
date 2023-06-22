@@ -1,7 +1,8 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import PageTitle from "../utilities/pageTitle/PageTitle";
-import { servicesData } from "./servicesData";
 import seperateToWords from "../utilities/helpers/seperateToWords";
+import { ServiceItem } from "../utilities/types/types";
+import useClientAppItems from "../hooks/use-client-app-items";
 const namespace = "services-pg";
 type ServiceRowProps = {
   title: string;
@@ -41,14 +42,14 @@ const ServiceRow = ({
   );
 };
 const ServicesPage = () => {
-  const orderedServicePageItems = servicesData.sort(
-    (a, b) => a.orderIdx - b.orderIdx
-  );
+  const { status, items } = useClientAppItems<ServiceItem>({
+    itemType: "servicesPage",
+  });
   return (
     <div className={namespace}>
       <PageTitle text={"Services".toUpperCase()} />
       <div className={`${namespace}-rows`}>
-        {orderedServicePageItems.map((service) => {
+        {items.map((service) => {
           const { id, images, subCategories, title } = service;
           const imgEntries = images ? Object.entries(images) : [];
           const imgOrder = imgEntries.sort((a, b) =>

@@ -3,7 +3,8 @@ import HomePageImageBannerFull from "./utilities/HomePageImgBannerFull";
 import ProjectsClickableBanner from "../utilities/projectsClickableBanner/ProjectsClickableBanner";
 import { Link } from "react-router-dom";
 import ContactActionButton from "../utilities/contactActionBanner/ContactActionBanner";
-import homePageData from "./homePageData";
+import useClientAppItems from "../hooks/use-client-app-items";
+import { HomePageItems } from "../utilities/types/types";
 const namespace = "home-pg";
 const HomePageBottomBanner = () => {
   return (
@@ -18,13 +19,13 @@ const HomePageBottomBanner = () => {
   );
 };
 const HomePage = () => {
-  const orderedHomePageItems = homePageData.sort(
-    (a, b) => a.orderIdx - b.orderIdx
-  );
+  const { status, items } = useClientAppItems<HomePageItems>({
+    itemType: "homePage",
+  });
   return (
     <div className={`${namespace}-container`}>
       <div className={`${namespace}-inner-container`}>
-        {orderedHomePageItems.map((item) => {
+        {items.map((item) => {
           const { id, subType, actionBtnData, title, textDescription, images } =
             item;
           const imgEntries = images ? Object.entries(images) : [];

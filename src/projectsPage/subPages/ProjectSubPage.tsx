@@ -9,6 +9,8 @@ import useWindowResize from "../../hooks/use-window-resize";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { ReactComponent as ResetZoom } from "./ResetZoom.svg";
+import useClientAppItems from "../../hooks/use-client-app-items";
+import { ProjectItem } from "../../utilities/types/types";
 type RecentCoordinates = {
   x1: number;
   y1: number;
@@ -39,8 +41,10 @@ const ProjectSubPageImagePopUpModal = ({
   if (!recentCoordinates.current) return <></>;
   const {
     //x1, x2, y1, y2,
-    
-    imgHeight, imgWidth } = recentCoordinates.current;
+
+    imgHeight,
+    imgWidth,
+  } = recentCoordinates.current;
   const imgStyles: { [key: string]: string } = {
     objectFit: "contain",
     aspectRatio: (imgWidth / imgHeight).toString(),
@@ -122,7 +126,7 @@ const ProjectSubPageImagePopUpModal = ({
                       const realAspectRatio = imgWidth / imgHeight;
                       const clickRelativeToImg = {
                         x: clickCoordinates.x,
-                        y: clickCoordinates.y, 
+                        y: clickCoordinates.y,
                       };
                       const centerX = x + width / 2;
                       const centerY = y + height / 2;
@@ -216,21 +220,23 @@ const ProjectSubPageImage = ({ img }: { img: ImageProps }) => {
 const ProjectSubPage = ({
   className,
   title,
-  imgArr,
-}: {
+  subType
+}:
+{
   className?: string;
   title: string;
-  imgArr: (ImageProps & {
-    id: string;
-  })[];
+  subType: string;
 }) => {
+  const { items, status } = useClientAppItems<ProjectItem>({
+    itemType: "projectsPage",
+  });
   return (
     <div className={`${namespace} ${className ? className : ""}`}>
       <PageTitle text={title.toUpperCase()} />
       <div className={`${namespace}-media-container`}>
-        {imgArr.map((img, i) => (
+        {/* {items.map((img, i) => (
           <ProjectSubPageImage img={img} key={img.id} />
-        ))}
+        ))} */}
       </div>
     </div>
   );

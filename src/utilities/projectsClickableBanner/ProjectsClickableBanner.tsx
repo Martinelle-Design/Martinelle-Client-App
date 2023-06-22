@@ -1,14 +1,15 @@
 import { ImageSlide } from "../imageSlide/ImageSlide";
 import { Link } from "react-router-dom";
-import { projectsClickableData } from "./projectsClickableData";
+import { ProjectButtonItem } from "../types/types";
+import useClientAppItems from "../../hooks/use-client-app-items";
 const namespace = "projects-clickable-banner";
 const ProjectsClickableBanner = () => {
-  const orderedProjectButtonItems = projectsClickableData.sort(
-    (a, b) => a.orderIdx - b.orderIdx
-  );
+  const { status, items } = useClientAppItems<ProjectButtonItem>({
+    itemType: "projectButtons",
+  });
   return (
     <div className={`${namespace}-bottom-banner`}>
-      {orderedProjectButtonItems.map((category) => {
+      {items.map((category) => {
         const { title, images, url, id } = category;
         const imageArr = images ? Object.entries(images) : undefined;
         const image =
