@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "=3.358.0",
     "@emotion/react": "=11.11.0",
     "@emotion/styled": "=11.11.0",
     "@fortawesome/fontawesome-svg-core": "=6.2.1",
@@ -22,7 +23,7 @@
     "date-fns": "=2.29.3",
     "email-validator": "^2.0.4",
     "is-retina": "=1.0.3",
-    "libphonenumber-js": "^1.10.31",
+    "libphonenumber-js": "=1.10.31",
     "lodash": "=4.17.21",
     "md5": "=2.3.0",
     "prop-types": "=15.8.1",

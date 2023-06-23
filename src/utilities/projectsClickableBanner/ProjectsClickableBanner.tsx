@@ -4,7 +4,9 @@ import { ProjectButtonItem } from "../types/types";
 import useClientAppItems from "../../hooks/use-client-app-items";
 const namespace = "projects-clickable-banner";
 const ProjectsClickableBanner = () => {
-  const { status, items } = useClientAppItems<ProjectButtonItem>({
+  const {
+    //status,
+    items } = useClientAppItems<ProjectButtonItem>({
     itemType: "projectButtons",
   });
   return (

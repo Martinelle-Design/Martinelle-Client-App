@@ -23,6 +23,6 @@ const useLoadingState = ({
     }
   };
   const callFunction = useCallback(callbackFunction, [asyncFunc]);
-  return { status, result, callFunction };
+  return { status, result, callFunction, setStatus };
 };
 export default useLoadingState;

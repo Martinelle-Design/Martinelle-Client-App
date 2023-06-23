@@ -19,7 +19,9 @@ const HomePageBottomBanner = () => {
   );
 };
 const HomePage = () => {
-  const { status, items } = useClientAppItems<HomePageItems>({
+  const {
+    //status,
+    items } = useClientAppItems<HomePageItems>({
     itemType: "homePage",
   });
   return (

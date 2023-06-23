@@ -42,7 +42,10 @@ const ServiceRow = ({
   );
 };
 const ServicesPage = () => {
-  const { status, items } = useClientAppItems<ServiceItem>({
+  const {
+    //status,
+    items,
+  } = useClientAppItems<ServiceItem>({
     itemType: "servicesPage",
   });
   return (

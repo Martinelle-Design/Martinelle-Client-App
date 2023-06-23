@@ -220,23 +220,37 @@ const ProjectSubPageImage = ({ img }: { img: ImageProps }) => {
 const ProjectSubPage = ({
   className,
   title,
-  subType
-}:
-{
+  subType,
+}: {
   className?: string;
   title: string;
   subType: string;
 }) => {
-  const { items, status } = useClientAppItems<ProjectItem>({
+  const {
+    items,
+    //status
+  } = useClientAppItems<ProjectItem>({
     itemType: "projectsPage",
+    subType,
+  });
+  const imgArr = items.map((item) => {
+    const imgsObj = item.images;
+    const images = imgsObj ? Object.entries(imgsObj) : [];
+    const image = images.length > 0 ? images[0][1] : null;
+    return {
+      id: item.id,
+      imgPlaceholderUrl: image ? image.placeholderUrl : "",
+      imgUrl: image ? image.imgUrl : "",
+      imgDescription: image ? image.description : "",
+    };
   });
   return (
     <div className={`${namespace} ${className ? className : ""}`}>
       <PageTitle text={title.toUpperCase()} />
       <div className={`${namespace}-media-container`}>
-        {/* {items.map((img, i) => (
+        {imgArr.map((img, i) => (
           <ProjectSubPageImage img={img} key={img.id} />
-        ))} */}
+        ))}
       </div>
     </div>
   );

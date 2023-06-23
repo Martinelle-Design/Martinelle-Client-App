@@ -3,39 +3,43 @@ import removeDuplicates from "../utilities/helpers/removeDuplicates";
 import useLoadingState from "./use-loading-state";
 import { unstable_batchedUpdates } from "react-dom";
 import fetchClientAppItems from "../asyncActions/fetchClientItems";
-type ClientAppItemProps<T> = T & {
+export type ClientAppItemProps<T> = T & {
   itemType: string;
   id: string;
-  pk: { timestamp: number; itemType: string };
+  pk: { timestamp: number | string; itemType: string };
+  orderIdx: number;
 };
-const useClientAppItems = <T,>({ itemType }: { itemType: string }) => {
+const useClientAppItems = <T,>({
+  itemType,
+  subType,
+}: {
+  itemType: string;
+  subType?: string;
+}) => {
   const [items, setItems] = useState<ClientAppItemProps<T>[]>([]);
-  const [lastEvalKey, setLastEvalKey] = useState<undefined | null | string>(
-    null
-  );
+  // const [lastEvalKey, setLastEvalKey] = useState<undefined | null | string>(
+  //   null
+  // );
   const { status, result, callFunction } = useLoadingState({
     asyncFunc: fetchClientAppItems,
   });
   //fetch items on mount
   useEffect(() => {
-    if (status === "loading") return;
-    if (items && items.length > 0) return;
-    if (lastEvalKey === undefined) return;
-    callFunction({ itemType });
-  }, [items, status, callFunction, lastEvalKey, itemType]);
+    callFunction({ itemType, subType });
+  }, [callFunction, itemType, subType]);
   //update items on result
   useEffect(() => {
     if (!result) return;
     const resultItems = result.result.Items as ClientAppItemProps<T>[];
-    const lastEvalKey = result.result.LastEvaluatedKey;
+    //const lastEvalKey = result.result.LastEvaluatedKey;
     unstable_batchedUpdates(() => {
       setItems((state) => {
         if (!state) return resultItems;
         const newArr = [...state, ...resultItems];
         return removeDuplicates(newArr);
       });
-      if (lastEvalKey) setLastEvalKey(JSON.stringify(lastEvalKey));
-      else setLastEvalKey(undefined);
+      // if (lastEvalKey) setLastEvalKey(JSON.stringify(lastEvalKey));
+      // else setLastEvalKey(undefined);
     });
   }, [result]);
   return {
